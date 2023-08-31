@@ -1,0 +1,8 @@
+Genders,Male,Female
+Age Ranges,0-19,20-39,40-59,60-89,90-110
+Hieght Ranges,1-3ft,4-5ft,6-8ft
+Occupation,Public Services,Natural Resources,Entertainment Industry,Customer Service,Tech Industry,Automotive Industry
+Hair Color,Blonde,Brown,Black,Red
+Eye Color,Amber,Blue,Gray,Green,Hazel
+Glasses,Glasses,No Glasses
+Income Ranges,Destitute,Poor,Middle Class,Wealthy,Ultra Wealthy

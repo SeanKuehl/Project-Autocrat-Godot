@@ -1,0 +1,8 @@
+Legal Rights,No Rights,Limited Rights,Full Rights,-5,0,5
+Property Rights,Can be property,Can't own property,Can own property,-5,0,5
+Freedom of Speech,Forced Praise,No Criticism,Limited Criticism,Full Freedom,-5,-2,0,5
+Trial Rights,No Fair Trial,No Representation,Fair Trial,Public Defender,-5,-2,0,5
+Medical Rights,No Access,Paid Access,Limited Free Access,Full Free Access,-5,-2,0,5
+Freedom of Movement,Can't leave birth city,Can move cities,Can move states,Can leave country,-5,-2,0,5
+Drivers Liscense,Not allowed Liscense,Limited allowance,Full allowance,-5,0,5
+Higher Education,Banned,Limited Admittance,Full Admittance,-5,0,5
