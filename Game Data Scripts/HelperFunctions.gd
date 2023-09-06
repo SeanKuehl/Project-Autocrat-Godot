@@ -1,6 +1,7 @@
 extends Node
 
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")
+const rightBase = preload("res://Game Data Scripts/Right.gd")
 
 #this file will be used for things like file reading functions, music loading
 #functions and the like that are used as the base for other script functions
@@ -43,6 +44,49 @@ func LoadSelectionsFromFile():
 	selections.remove_at(len(selections)-1) #remove empty element at end
 		
 	return selections
+	
+	
+func LoadRightsFromFile():
+	var content = ReadLinesFromFile("res://assets/Game Data/Rights.txt")
+	var noNew = content.split("\n") #get rid of newlines
+	var rights = []
+	
+	for item in noNew:
+		var newRight = rightBase.new()
+		var nameAndOptions = item
+		nameAndOptions = nameAndOptions.split(",")
+		newRight.SetName(nameAndOptions[0])
+		print(nameAndOptions[0])
+		var alteredLastElement = nameAndOptions[-1].strip_escapes() #last option has \r on it for some reason, this gets rid of it
+		nameAndOptions.remove_at(len(nameAndOptions)-1)
+		nameAndOptions.append(alteredLastElement)
+		
+		
+		nameAndOptions.remove_at(0)
+		
+		#half of the remaining elements are the text options and the second half
+		#are the effects of those options
+		
+		
+		var options = nameAndOptions
+		var numberOfOptions = len(options) / 2
+		var textOptions = []
+		var effects = []
+		
+		for x in range(len(options)):
+			if x < numberOfOptions:
+				textOptions.append(options[x])
+			else:
+				effects.append(options[x])
+		
+		
+		newRight.SetOptions(textOptions)
+		newRight.SetEffects(effects)
+		rights.append(newRight)
+		
+	
+		
+	return rights
 		
 		
 	
