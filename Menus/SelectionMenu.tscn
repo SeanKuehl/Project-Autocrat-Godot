@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://coh53o7nnsyq8"]
+
+[ext_resource type="Script" path="res://Menu Scripts/SelectionMenu.gd" id="1_x84fv"]
+
+[node name="SelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x84fv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 652.0
+
+[node name="SelectionTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 72.0
+offset_right = 674.0
+offset_bottom = 172.0
+
+[node name="Option1" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 232.0
+offset_right = 221.0
+offset_bottom = 256.0
+
+[node name="Option2" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 237.0
+offset_right = 502.0
+offset_bottom = 261.0
+
+[node name="Option3" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 238.0
+offset_right = 755.0
+offset_bottom = 262.0
+
+[node name="Option4" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 242.0
+offset_right = 983.0
+offset_bottom = 266.0
+
+[node name="Option5" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 381.0
+offset_right = 207.0
+offset_bottom = 405.0
+
+[node name="Option6" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 381.0
+offset_right = 488.0
+offset_bottom = 405.0
+
+[node name="Option7" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 391.0
+offset_right = 750.0
+offset_bottom = 415.0
+
+[node name="Option8" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 937.0
+offset_top = 391.0
+offset_right = 981.0
+offset_bottom = 415.0
+
+[node name="Last" type="Button" parent="."]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 552.0
+offset_right = 420.0
+offset_bottom = 587.0
+text = "Previous"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 558.0
+offset_right = 782.0
+offset_bottom = 594.0
+text = "Next"
+
+[node name="ProgressLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 548.0
+offset_right = 615.0
+offset_bottom = 599.0
+text = "0/0"
+
+[connection signal="pressed" from="Last" to="." method="_on_last_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

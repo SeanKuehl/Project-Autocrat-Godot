@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://l8wvcpif8cc3"]
+
+[ext_resource type="Script" path="res://Menu Scripts/RightMenu.gd" id="1_k13op"]
+
+[node name="RightMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k13op")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 653.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 59.0
+offset_right = 665.0
+offset_bottom = 130.0
+
+[node name="Option1" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 253.0
+offset_right = 295.0
+offset_bottom = 290.0
+
+[node name="Option2" type="CheckButton" parent="."]
+offset_left = 423.0
+offset_top = 250.0
+offset_right = 580.0
+offset_bottom = 287.0
+
+[node name="Option3" type="CheckButton" parent="."]
+offset_left = 640.0
+offset_top = 253.0
+offset_right = 797.0
+offset_bottom = 290.0
+
+[node name="Option4" type="CheckButton" parent="."]
+offset_left = 899.0
+offset_top = 244.0
+offset_right = 1056.0
+offset_bottom = 281.0
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 556.0
+offset_right = 457.0
+offset_bottom = 605.0
+text = "Last"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 555.0
+offset_right = 743.0
+offset_bottom = 603.0
+text = "Next"
+
+[node name="NavigationText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 566.0
+offset_right = 565.0
+offset_bottom = 597.0
+text = "0/0"
+
+[connection signal="pressed" from="Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="Option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

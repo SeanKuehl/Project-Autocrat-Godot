@@ -20,5 +20,8 @@ func SetOptions(newOptions):
 func GetOptions():
 	return selectionOptions
 	
+func SetChoices(newChoices):
+	selectionChoices = newChoices
+	
 func GetChoices():
 	return selectionChoices
