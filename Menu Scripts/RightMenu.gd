@@ -4,7 +4,9 @@ var rights = []
 var rightsIndex = 0
 var selectedButtonIndex = -1
 
-func _ready():
+signal RightDone(rights)
+
+func Init():
 	rights = GameData.rights
 	SetNavigationText()
 	SetRight()
@@ -95,8 +97,29 @@ func ClearOptionsAndEffects():
 	$Option4.hide()
 	
 	
-
+func HideMe():
+	ClearOptionsAndEffects()
 	
+	$Panel.mouse_filter = MOUSE_FILTER_IGNORE
+	$Panel.hide()
+	$Title.hide()
+	$Previous.hide()
+	$Next.hide()
+	$NavigationText.hide()
+	
+func ShowMe():
+	$Panel.mouse_filter = MOUSE_FILTER_STOP
+	$Panel.show()
+	
+	$Title.show()
+	$Option1.show()
+	$Option2.show()
+	$Option3.show()
+	$Option4.show()
+	
+	$Previous.show()
+	$Next.show()
+	$NavigationText.show()
 
 
 func _on_previous_pressed():
@@ -111,6 +134,12 @@ func _on_previous_pressed():
 
 func _on_next_pressed():
 	var max = len(rights)-1
+	
+	if rightsIndex == max:
+		#user is done
+		UpdateRight()
+		RightDone.emit(rights)
+		HideMe()
 	
 	if rightsIndex < max:
 		UpdateRight()

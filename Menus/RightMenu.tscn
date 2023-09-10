@@ -31,18 +31,21 @@ offset_right = 295.0
 offset_bottom = 290.0
 
 [node name="Option2" type="CheckButton" parent="."]
+layout_mode = 0
 offset_left = 423.0
 offset_top = 250.0
 offset_right = 580.0
 offset_bottom = 287.0
 
 [node name="Option3" type="CheckButton" parent="."]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 253.0
 offset_right = 797.0
 offset_bottom = 290.0
 
 [node name="Option4" type="CheckButton" parent="."]
+layout_mode = 0
 offset_left = 899.0
 offset_top = 244.0
 offset_right = 1056.0

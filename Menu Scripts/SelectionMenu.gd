@@ -3,11 +3,19 @@ extends Control
 var selections = []
 var selectionsListIndex = 0
 
+signal SelectionDone(selections)
 
-func _ready():
+
+
+
+	
+
+func Init():
 	selections = GameData.selections
 	SetNavigationText()
 	SetSelection()
+	
+
 	
 	
 func SetNavigationText():
@@ -96,6 +104,7 @@ func SetSelectionOptions():
 	HideAllOptions()
 	
 	if numberOfOptions == 2:
+		
 		$Option1.button_pressed = false
 		$Option1.text = options[0]
 		$Option1.show()
@@ -243,6 +252,7 @@ func SetSelectionOptions():
 		$Option8.show()
 	
 func HideAllOptions():
+	
 	$Option1.hide()
 	$Option2.hide()
 	$Option3.hide()
@@ -252,7 +262,38 @@ func HideAllOptions():
 	$Option7.hide()
 	$Option8.hide()
 		
+func HideMe():
+	$Panel.mouse_filter = MOUSE_FILTER_IGNORE
+	$Panel.hide()
 	
+	$SelectionTitle.hide()
+	
+	HideAllOptions()
+	
+	$Last.hide()
+	$Next.hide()
+	
+	$ProgressLabel.hide()
+
+func ShowMe():
+	$Panel.mouse_filter = MOUSE_FILTER_STOP
+	$Panel.show()
+	
+	$SelectionTitle.show()
+	
+	$Option1.show()
+	$Option2.show()
+	$Option3.show()
+	$Option4.show()
+	$Option5.show()
+	$Option6.show()
+	$Option7.show()
+	$Option8.show()
+	
+	$Last.show()
+	$Next.show()
+	
+	$ProgressLabel.show()
 
 
 func _on_last_pressed():
@@ -269,8 +310,19 @@ func _on_last_pressed():
 func _on_next_pressed():
 	var max = len(selections)-1
 	
+	if selectionsListIndex == max:
+		#user is done
+		UpdateSelectionChoices()
+		SelectionDone.emit(selections)
+		HideMe()
+		
+	
 	if selectionsListIndex < max:
 		UpdateSelectionChoices()
 		selectionsListIndex += 1
 		SetNavigationText()
 		SetSelection()
+		
+	
+
+
