@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://k01cuh4jdp7w"]
+
+[ext_resource type="Texture2D" uid="uid://bwyk8nejqf0kb" path="res://assets/Images/GameObjects/ProgressBarUnder.png" id="1_vlca8"]
+[ext_resource type="Texture2D" uid="uid://cy0jh74yauot6" path="res://assets/Images/GameObjects/ProgressBarTop.png" id="2_y083d"]
+
+[node name="CasteDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 276.0
+offset_bottom = 136.0
+
+[node name="CasteTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 11.0
+offset_right = 152.0
+offset_bottom = 34.0
+
+[node name="CasteDescription" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 35.0
+offset_right = 252.0
+offset_bottom = 72.0
+
+[node name="ApprovalBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 87.0
+offset_right = 139.0
+offset_bottom = 99.0
+texture_under = ExtResource("1_vlca8")
+texture_over = ExtResource("2_y083d")
+
+[node name="LimitedBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 104.0
+offset_right = 137.0
+offset_bottom = 116.0
+texture_under = ExtResource("1_vlca8")
+texture_over = ExtResource("2_y083d")
+
+[node name="EditButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 92.0
+offset_right = 255.0
+offset_bottom = 116.0
+text = "Edit"

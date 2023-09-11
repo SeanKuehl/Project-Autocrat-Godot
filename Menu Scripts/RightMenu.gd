@@ -98,7 +98,7 @@ func ClearOptionsAndEffects():
 	
 	
 func HideMe():
-	ClearOptionsAndEffects()
+	
 	
 	$Panel.mouse_filter = MOUSE_FILTER_IGNORE
 	$Panel.hide()
@@ -106,6 +106,11 @@ func HideMe():
 	$Previous.hide()
 	$Next.hide()
 	$NavigationText.hide()
+	
+	$Option1.hide()
+	$Option2.hide()
+	$Option3.hide()
+	$Option4.hide()
 	
 func ShowMe():
 	$Panel.mouse_filter = MOUSE_FILTER_STOP

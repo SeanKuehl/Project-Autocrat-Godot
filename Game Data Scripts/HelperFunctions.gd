@@ -56,7 +56,7 @@ func LoadRightsFromFile():
 		var nameAndOptions = item
 		nameAndOptions = nameAndOptions.split(",")
 		newRight.SetName(nameAndOptions[0])
-		print(nameAndOptions[0])
+		
 		var alteredLastElement = nameAndOptions[-1].strip_escapes() #last option has \r on it for some reason, this gets rid of it
 		nameAndOptions.remove_at(len(nameAndOptions)-1)
 		nameAndOptions.append(alteredLastElement)

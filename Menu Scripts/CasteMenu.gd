@@ -122,6 +122,7 @@ func SelectionMenuDone(newSelections):
 	ShowMe()
 	menuSelections = newSelections
 	selectionsSet = true
+	remove_child(selectionMenu)
 
 func _on_right_button_pressed():
 	rightMenu = rightMenuScene.instantiate()
@@ -139,6 +140,7 @@ func RightMenuDone(newRights):
 	ShowMe()
 	menuRights = newRights
 	rightsSet = true
+	remove_child(rightMenu)
 
 
 func _on_cancel_button_pressed():

@@ -21,4 +21,4 @@ func _init():
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Menus/CasteMenu.tscn")
+	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
