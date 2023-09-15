@@ -1,5 +1,5 @@
 extends Control
-const casteClass = preload("res://Game Data Scripts/Caste.gd")
+const Caste = preload("res://Game Data Scripts/Caste.gd")
 const selectionMenuScene = preload("res://Menus/SelectionMenu.tscn")
 const rightMenuScene = preload("res://Menus/RightMenu.tscn")
 
@@ -14,7 +14,8 @@ var selectionMenu = ""
 var rightMenu = ""
 
 
-
+func _ready():
+	CreateCaste()
 	
 func HideMe():
 	$Panel.mouse_filter = MOUSE_FILTER_IGNORE
@@ -49,10 +50,11 @@ func ShowMe():
 
 func CreateCaste():
 	#create new caste object, selections and rights
-	menuCaste = casteClass.new()
+	menuCaste = Caste.new()
 	menuCaste.GenerateCasteID()
+	print(GameData.selections[0].GetName())
 	menuSelections = GameData.selections
-	menuRights = GameData.Rights
+	menuRights = GameData.rights
 	selectionsSet = false
 	rightsSet = false
 	
@@ -149,16 +151,25 @@ func _on_cancel_button_pressed():
 
 func _on_create_button_pressed():
 	#check for other castes with same ID, if none just add to list
-	var casteUpdated = false
+	UpdateCaste()
 	
-	for i in range(len(GameData.castes)):
-		if menuCaste.GetCasteID() == GameData.castes[i].GetCasteID():
-			GameData.casteList[i] = menuCaste
-			casteUpdated = true
+	if len(GameData.castes) <= 0:
+		var newCastes = []
+		newCastes.append(menuCaste)
+		GameData.castes = newCastes
 		
-	if casteUpdated == false:
-		GameData.castes.append(menuCaste)
+	else:
 		
+		for i in range(len(GameData.castes)):
+			if menuCaste.GetCasteID() == GameData.castes[i].GetCasteID():
+				GameData.castes[i] = menuCaste
+				
+		
+	
+		
+		
+	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
+	get_tree().get_current_scene().ready
 	HideMe()
 			
 	
