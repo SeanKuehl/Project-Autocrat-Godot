@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://d23qxf5x08fma"]
+
+[ext_resource type="Script" path="res://Menu Scripts/DefeatScreen.gd" id="1_sbdus"]
+
+[node name="DefeatScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbdus")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 655.0
+
+[node name="DefeatLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 186.0
+offset_right = 685.0
+offset_bottom = 260.0
+text = "You Lose!"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 308.0
+offset_right = 613.0
+offset_bottom = 367.0
+text = "Close"
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

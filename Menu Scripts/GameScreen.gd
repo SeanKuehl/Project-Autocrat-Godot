@@ -2,6 +2,7 @@ extends Control
 
 const casteDisplayScene = preload("res://GameObjects/CasteDisplay.tscn")
 
+var turnNumber = 1
 
 func _ready():
 	GetRelativeApproval()
@@ -62,3 +63,9 @@ func _on_create_caste_button_pressed():
 	get_tree().get_current_scene().ready
 	
 	
+
+
+func _on_end_turn_pressed():
+	if len(GameData.castes) > 1:
+		#at least 2 castes
+		turnNumber += 1
