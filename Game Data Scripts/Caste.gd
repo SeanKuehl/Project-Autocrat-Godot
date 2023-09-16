@@ -5,6 +5,8 @@ var casteDescription = ""
 var casteSelections = []
 var casteRights = []
 
+var relativeApproval = 0
+
 var casteID = -1
 
 func GenerateCasteID():
@@ -69,4 +71,8 @@ func GetLimitedness():
 	return limitednessScore
 				
 	
-
+func SetRelativeApproval(newApproval):
+	relativeApproval = newApproval
+	
+func GetRelativeApproval():
+	return relativeApproval
