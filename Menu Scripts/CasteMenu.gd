@@ -133,8 +133,9 @@ func _on_right_button_pressed():
 	
 	add_child(rightMenu)
 	HideMe()
-	rightMenu.Init()
+	
 	rightMenu.ShowMe()
+	rightMenu.Init()
 	
 	
 func RightMenuDone(newRights):

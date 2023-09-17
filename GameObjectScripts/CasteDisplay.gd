@@ -16,4 +16,4 @@ func DisplayCaste(passedCaste: Caste):
 
 func _on_edit_button_pressed():
 	get_tree().change_scene_to_file("res://Menus/CasteMenu.tscn")
-	get_tree().get_current_scene().EditCaste
+	get_tree().get_current_scene().EditCaste()

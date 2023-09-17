@@ -22,7 +22,7 @@ func DisplayCastes():
 		pass
 	else:
 		#display castes in CasteDisplay objects
-		
+		pass
 		
 		for caste in GameData.castes:
 			

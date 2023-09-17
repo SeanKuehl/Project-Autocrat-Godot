@@ -6,10 +6,13 @@ var selectedButtonIndex = -1
 
 signal RightDone(rights)
 
+
+
 func Init():
 	rights = GameData.rights
-	SetNavigationText()
+	
 	SetRight()
+	SetNavigationText()
 	
 func SetRight():
 	SetTitle()
@@ -58,6 +61,8 @@ func SetRightOptionsAndEffects():
 		$Option3.text = options[2] + "(" + effects[2] + ")"
 		$Option3.button_pressed = false
 		$Option3.show()
+		
+		
 		
 	elif numberOfOptions == 4:
 		$Option1.text = options[0] + "(" + effects[0] + ")"
