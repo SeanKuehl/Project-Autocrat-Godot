@@ -52,7 +52,7 @@ func CreateCaste():
 	#create new caste object, selections and rights
 	menuCaste = Caste.new()
 	menuCaste.GenerateCasteID()
-	print(GameData.selections[0].GetName())
+	
 	menuSelections = GameData.selections
 	menuRights = GameData.rights
 	selectionsSet = false
@@ -147,6 +147,8 @@ func RightMenuDone(newRights):
 
 func _on_cancel_button_pressed():
 	HideMe()
+	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
+	
 
 
 func _on_create_button_pressed():
@@ -167,9 +169,9 @@ func _on_create_button_pressed():
 		
 	
 		
-		
-	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
-	get_tree().get_current_scene().ready
 	HideMe()
+	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
+	#get_tree().get_current_scene().ready
+	
 			
 	
