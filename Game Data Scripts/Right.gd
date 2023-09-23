@@ -17,14 +17,14 @@ func SetOptions(newOptions):
 	rightOptions = newOptions
 
 func GetOptions():
-	return rightOptions
+	return rightOptions.duplicate(true)
 	
 
 func SetEffects(newEffects):
 	rightEffects = newEffects
 	
 func GetEffects():
-	return rightEffects
+	return rightEffects.duplicate(true)
 	
 func SetIndex(newIndex):
 	selectedIndex = newIndex

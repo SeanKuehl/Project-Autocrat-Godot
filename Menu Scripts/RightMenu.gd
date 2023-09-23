@@ -9,7 +9,7 @@ signal RightDone(rights)
 
 
 func Init():
-	rights = GameData.rights
+	rights = GameData.LoadRightsFromFile()
 	
 	SetRight()
 	SetNavigationText()

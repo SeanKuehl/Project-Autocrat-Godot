@@ -13,6 +13,7 @@ func _ready():
 
 			
 func DisplayCastes():
+	
 	#display all castes in the list
 	var casteApprovalIndex = 0
 	var casteLocation = 100
@@ -28,7 +29,7 @@ func DisplayCastes():
 			
 			var newCaste = casteDisplayScene.instantiate()
 			newCaste.global_position = Vector2(100,casteLocation)
-			casteLocation += 100
+			casteLocation += 200
 			newCaste.DisplayCaste(caste)
 			add_child(newCaste)
 			

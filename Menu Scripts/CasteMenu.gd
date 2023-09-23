@@ -15,7 +15,13 @@ var rightMenu = ""
 
 
 func _ready():
-	CreateCaste()
+	print("got here")
+	
+	if typeof(GameData.editCaste) == TYPE_OBJECT:
+		EditCaste(GameData.editCaste)
+		GameData.editCaste = 0
+	else:
+		CreateCaste()
 	
 func HideMe():
 	$Panel.mouse_filter = MOUSE_FILTER_IGNORE
@@ -53,8 +59,8 @@ func CreateCaste():
 	menuCaste = Caste.new()
 	menuCaste.GenerateCasteID()
 	
-	menuSelections = GameData.selections
-	menuRights = GameData.rights
+	menuSelections = GameData.LoadSelectionsFromFile()
+	menuRights = GameData.LoadRightsFromFile()
 	selectionsSet = false
 	rightsSet = false
 	
@@ -155,6 +161,7 @@ func _on_cancel_button_pressed():
 func _on_create_button_pressed():
 	#check for other castes with same ID, if none just add to list
 	UpdateCaste()
+	var casteExists = false
 	
 	if len(GameData.castes) <= 0:
 		var newCastes = []
@@ -166,8 +173,11 @@ func _on_create_button_pressed():
 		for i in range(len(GameData.castes)):
 			if menuCaste.GetCasteID() == GameData.castes[i].GetCasteID():
 				GameData.castes[i] = menuCaste
+				casteExists = true
 				
+		if casteExists == false:
 		
+			GameData.castes.append(menuCaste)
 	
 		
 	HideMe()

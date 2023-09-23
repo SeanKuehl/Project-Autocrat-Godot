@@ -11,7 +11,7 @@ signal SelectionDone(selections)
 	
 
 func Init():
-	selections = GameData.selections
+	selections = GameData.LoadSelectionsFromFile()
 	SetNavigationText()
 	SetSelection()
 	
