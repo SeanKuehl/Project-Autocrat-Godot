@@ -52,7 +52,13 @@ func GetRelativeApproval():
 				else:
 					var differenceInApproval = abs(thisCaste.GetApproval() - caste.GetApproval())
 					var differenceInLimitedness = abs(thisCaste.GetLimitedness() - caste.GetLimitedness())
-					relativeApproval += differenceInApproval * differenceInLimitedness
+					#relativeApproval += differenceInApproval * differenceInLimitedness
+					
+					if thisCaste.GetApproval() >= caste.GetApproval():
+						#we are happier than they are
+						relativeApproval += differenceInApproval * differenceInLimitedness
+					elif thisCaste.GetApproval() < caste.GetApproval():
+						relativeApproval -= differenceInApproval * differenceInLimitedness
 					
 			GameData.castes[casteIndex].SetRelativeApproval(relativeApproval)
 			
@@ -91,7 +97,7 @@ func _on_end_turn_pressed():
 		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 		$TurnCountLabel.text = "Turn: " +str(turnNumber)
 		
-	if rebellionPoints >= 20:
+	if rebellionPoints <= -1000:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
 	elif turnNumber == 20:
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")

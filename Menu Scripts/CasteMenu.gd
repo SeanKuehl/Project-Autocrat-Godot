@@ -15,7 +15,7 @@ var rightMenu = ""
 
 
 func _ready():
-	print("got here")
+	
 	
 	if typeof(GameData.editCaste) == TYPE_OBJECT:
 		EditCaste(GameData.editCaste)
