@@ -10,6 +10,8 @@ var menuRights = []
 var rightsSet = false
 var menuCaste = []
 
+var thisCasteIsRulingClass = false
+
 var selectionMenu = ""
 var rightMenu = ""
 
@@ -70,6 +72,14 @@ func EditCaste(passedCaste):
 	menuCaste = passedCaste
 	menuSelections = menuCaste.GetSelections()
 	menuRights = menuCaste.GetRights()
+	thisCasteIsRulingClass = menuCaste.GetRulingClass()
+	
+	if thisCasteIsRulingClass:
+		$RulingClassCheck.button_pressed = true
+	else:
+		$LowerClassCheck.button_pressed = true
+	
+	
 	selectionsSet = true
 	rightsSet = true
 	
@@ -80,6 +90,7 @@ func UpdateCaste():
 		menuCaste.SetDescription($DescriptionInput.text)
 		menuCaste.SetSelections(menuSelections)
 		menuCaste.SetRights(menuRights)
+		menuCaste.SetRulingClass(thisCasteIsRulingClass)
 	
 	
 	
@@ -186,3 +197,12 @@ func _on_create_button_pressed():
 	
 			
 	
+
+
+func _on_ruling_class_check_pressed():
+	$LowerClassCheck.button_pressed = false	#you can be either ruling or lower class, not both
+	thisCasteIsRulingClass = true
+
+func _on_lower_class_check_pressed():
+	$RulingClassCheck.button_pressed = false
+	thisCasteIsRulingClass = false

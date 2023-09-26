@@ -49,18 +49,18 @@ offset_bottom = 335.0
 
 [node name="SelectionButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 381.0
-offset_right = 670.0
-offset_bottom = 421.0
+offset_left = 307.0
+offset_top = 365.0
+offset_right = 532.0
+offset_bottom = 405.0
 text = "Create/Edit Caste Selections"
 
 [node name="RightButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 452.0
-offset_right = 658.0
-offset_bottom = 490.0
+offset_left = 612.0
+offset_top = 366.0
+offset_right = 806.0
+offset_bottom = 404.0
 text = "Create/Edit Caste Rights"
 
 [node name="CreateButton" type="Button" parent="."]
@@ -79,7 +79,25 @@ offset_right = 547.0
 offset_bottom = 600.0
 text = "Cancel"
 
+[node name="RulingClassCheck" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 430.0
+offset_right = 538.0
+offset_bottom = 502.0
+text = "Ruling Class"
+
+[node name="LowerClassCheck" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 432.0
+offset_right = 742.0
+offset_bottom = 507.0
+text = "Lower Class"
+
 [connection signal="pressed" from="SelectionButton" to="." method="_on_selection_button_pressed"]
 [connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="RulingClassCheck" to="." method="_on_ruling_class_check_pressed"]
+[connection signal="pressed" from="LowerClassCheck" to="." method="_on_lower_class_check_pressed"]

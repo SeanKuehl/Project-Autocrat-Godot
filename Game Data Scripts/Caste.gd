@@ -7,6 +7,8 @@ var casteRights = []
 
 var relativeApproval = 0
 
+var rulingClass = false
+
 var casteID = -1
 
 func GenerateCasteID():
@@ -76,3 +78,10 @@ func SetRelativeApproval(newApproval):
 	
 func GetRelativeApproval():
 	return relativeApproval
+	
+
+func GetRulingClass():
+	return rulingClass
+	
+func SetRulingClass(newRuling):
+	rulingClass = newRuling
