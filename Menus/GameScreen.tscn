@@ -20,18 +20,18 @@ offset_bottom = 652.0
 
 [node name="CreateCasteButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 507.0
-offset_top = 559.0
-offset_right = 628.0
-offset_bottom = 601.0
+offset_left = 635.0
+offset_top = 4.0
+offset_right = 825.0
+offset_bottom = 73.0
 text = "Create Caste"
 
 [node name="EndTurn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1005.0
-offset_top = 29.0
-offset_right = 1087.0
-offset_bottom = 76.0
+offset_left = 987.0
+offset_top = 2.0
+offset_right = 1148.0
+offset_bottom = 74.0
 text = "End Turn"
 
 [node name="TurnCountLabel" type="Label" parent="."]
@@ -49,6 +49,15 @@ offset_top = 276.0
 offset_right = 1143.0
 offset_bottom = 320.0
 text = "Rebellion Points:"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 4.0
+offset_right = 990.0
+offset_bottom = 73.0
+text = "Settings
+"
 
 [connection signal="pressed" from="CreateCasteButton" to="." method="_on_create_caste_button_pressed"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
