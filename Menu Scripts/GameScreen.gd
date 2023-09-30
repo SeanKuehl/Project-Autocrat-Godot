@@ -4,9 +4,10 @@ const casteDisplayScene = preload("res://GameObjects/CasteDisplay.tscn")
 
 var turnNumber = 1
 var rebellionPoints = 0
+var securityPoints = 0
 
 func _ready():
-	GetRelativeApproval()
+	#GetRelativeApproval()
 	DisplayCastes()
 	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 	$TurnCountLabel.text = "Turn: " +str(turnNumber)
@@ -66,19 +67,24 @@ func GetRelativeApproval():
 			casteIndex += 1
 			
 		
-func CalculateRebellionPoints():
-	var rebellionPoints = 0
+func CalculateRebellionAndSecurityPoints():
+	
 	
 	for caste in GameData.castes:
-		var weightedPoints = caste.GetApproval() * caste.GetLimitedness()
-		if weightedPoints < 0:
-			weightedPoints = weightedPoints / 2 #divide by two to make easier for smaller ruling class to succeed
-			rebellionPoints += weightedPoints
-		else:
-			#caste is happy, does not contribute towards rebellion
-			pass
+		
+		if caste.GetRulingClass() == true:
+			if caste.GetApproval() >= 20:
+				var points = caste.GetApproval() * caste.GetLimitedness()
+				securityPoints += points
+				
+		elif caste.GetRulingClass() == false:
+			if caste.GetApproval() <= -20:
+				var points = caste.GetApproval() * caste.GetLimitedness()
+				rebellionPoints += points
+		
+		
 			
-	return rebellionPoints
+	
 		
 
 
@@ -93,7 +99,7 @@ func _on_end_turn_pressed():
 	if len(GameData.castes) > 1:
 		#at least 2 castes
 		turnNumber += 1
-		rebellionPoints += CalculateRebellionPoints()
+		CalculateRebellionAndSecurityPoints()
 		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 		$TurnCountLabel.text = "Turn: " +str(turnNumber)
 		
