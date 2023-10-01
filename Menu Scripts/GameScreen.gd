@@ -5,12 +5,18 @@ const casteDisplayScene = preload("res://GameObjects/CasteDisplay.tscn")
 var turnNumber = 1
 var rebellionPoints = 0
 var securityPoints = 0
+var economyPoints = 0
+
+var gameOverTurn = 20
+var rebellionThreshold = -1000
 
 func _ready():
-	#GetRelativeApproval()
+	
 	DisplayCastes()
 	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 	$TurnCountLabel.text = "Turn: " +str(turnNumber)
+	$securityPointsLabel.text = "Security Points: " + str(securityPoints)
+	$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 
 			
 func DisplayCastes():
@@ -35,55 +41,31 @@ func DisplayCastes():
 			add_child(newCaste)
 			
 		
-func GetRelativeApproval():
-	var relativeApprovalList = []
-	var relativeApproval = 0
-	var casteIndex = 0
-	
-	if len(GameData.castes) > 1:
-		#if there is more than one caste, then there is relative approval/
-		#relation between them
-		#for each caste, get difference in approval * difference in limitedness
-		#with each other caste and this is the relative approval
-		for thisCaste in GameData.castes:
-			for caste in GameData.castes:
-				if thisCaste.GetCasteID() == caste.GetCasteID():
-					#if they are the same, do nothing
-					pass	
-				else:
-					var differenceInApproval = abs(thisCaste.GetApproval() - caste.GetApproval())
-					var differenceInLimitedness = abs(thisCaste.GetLimitedness() - caste.GetLimitedness())
-					#relativeApproval += differenceInApproval * differenceInLimitedness
-					
-					if thisCaste.GetApproval() >= caste.GetApproval():
-						#we are happier than they are
-						relativeApproval += differenceInApproval * differenceInLimitedness
-					elif thisCaste.GetApproval() < caste.GetApproval():
-						relativeApproval -= differenceInApproval * differenceInLimitedness
-					
-			GameData.castes[casteIndex].SetRelativeApproval(relativeApproval)
-			
-			relativeApproval = 0
-			casteIndex += 1
+
 			
 		
 func CalculateRebellionAndSecurityPoints():
-	
+	var economyPointHelper = 0
 	
 	for caste in GameData.castes:
 		
 		if caste.GetRulingClass() == true:
+			economyPointHelper -= caste.GetLimitedness()
 			if caste.GetApproval() >= 20:
 				var points = caste.GetApproval() * caste.GetLimitedness()
 				securityPoints += points
 				
 		elif caste.GetRulingClass() == false:
+			economyPointHelper += caste.GetLimitedness()
 			if caste.GetApproval() <= -20:
 				var points = caste.GetApproval() * caste.GetLimitedness()
 				rebellionPoints += points
 		
 		
-			
+	if economyPointHelper > 0:
+		#ruling class doesn't pay taxes, working class does
+		#econ points is lower class limitedness - ruling class limitedness * 1000
+		economyPoints += economyPointHelper * 1000
 	
 		
 
@@ -102,10 +84,12 @@ func _on_end_turn_pressed():
 		CalculateRebellionAndSecurityPoints()
 		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 		$TurnCountLabel.text = "Turn: " +str(turnNumber)
+		$securityPointsLabel.text = "Security Points: " + str(securityPoints)
+		$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 		
-	if rebellionPoints <= -1000:
+	if rebellionPoints <= rebellionThreshold:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
-	elif turnNumber == 20:
+	elif turnNumber == gameOverTurn:
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")
 		
 		

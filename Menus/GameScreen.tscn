@@ -59,5 +59,21 @@ offset_bottom = 73.0
 text = "Settings
 "
 
+[node name="SecurityPointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 363.0
+offset_right = 1132.0
+offset_bottom = 406.0
+text = "Security Points:"
+
+[node name="EconomyPointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 902.0
+offset_top = 451.0
+offset_right = 1139.0
+offset_bottom = 477.0
+text = "Economy Points:"
+
 [connection signal="pressed" from="CreateCasteButton" to="." method="_on_create_caste_button_pressed"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
