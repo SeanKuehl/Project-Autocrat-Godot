@@ -30,7 +30,7 @@ func HandleWarTransfer():
 		pass
 	else:
 		securityPoints = temp[0]
-		economyPoints = temp[1]
+		rebellionPoints = temp[1]
 			
 func DisplayCastes():
 	
@@ -94,7 +94,11 @@ func _on_end_turn_pressed():
 	if len(GameData.castes) > 1:
 		#at least 2 castes
 		turnNumber += 1
+		GameData.IncrementTurnsAtWar()
 		CalculateRebellionAndSecurityPoints()
+		securityPoints -= GameData.GetTurnsAtWar() * 500	#if not at war and zero, no effect
+		
+		
 		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 		$TurnCountLabel.text = "Turn: " +str(turnNumber)
 		$securityPointsLabel.text = "Security Points: " + str(securityPoints)

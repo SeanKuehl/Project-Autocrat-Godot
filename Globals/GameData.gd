@@ -11,7 +11,8 @@ var casteIDBase = 1
 var editCaste = 0
 
 var syncSecurityPoints = 0
-var syncEconomyPoints = 0
+var syncRebellionPoints = 0
+var approvalPenalty = 0
 var warSync = false
 var activeWar = false
 var turnsAtWar = 0
@@ -23,21 +24,32 @@ const rightBase = preload("res://Game Data Scripts/Right.gd")
 #functions and the like that are used as the base for other script functions
 
 
-func SetWarTransfer(newSec,newEcon):
+func SetWarTransfer(newSec,newReb):
 	syncSecurityPoints = newSec
-	syncEconomyPoints = newEcon
+	syncRebellionPoints = newReb
 	warSync = true
 	
 func GetWarTransfer():
 	if warSync:
 		warSync = false
-		return [syncSecurityPoints, syncEconomyPoints]
+		return [syncSecurityPoints, syncRebellionPoints]
 	else:
 		return [-1]
 		
-func GetWarEffects():
-	#this is called each turn there is a war
-	pass
+func GetTurnsAtWar():
+	return turnsAtWar
+	
+func IncrementTurnsAtWar():
+	turnsAtWar += 1
+	
+
+func StartWar():
+	activeWar = true
+	
+func EndWar():
+	activeWar = false
+	turnsAtWar = 0
+	
 
 
 func ReadLinesFromFile(fileName):
