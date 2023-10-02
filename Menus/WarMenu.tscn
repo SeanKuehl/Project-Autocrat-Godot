@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpytvh3risiay"]
+
+[ext_resource type="Script" path="res://Menu Scripts/WarMenu.gd" id="1_lg0pp"]
+
+[node name="WarMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lg0pp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 654.0
+
+[node name="DeclareWarButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 253.0
+offset_right = 261.0
+offset_bottom = 291.0
+text = "Declare War"
+
+[node name="SurrenderButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 263.0
+offset_right = 969.0
+offset_bottom = 296.0
+text = "Surrender"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 59.0
+offset_bottom = 42.0
+text = "<"
+
+[node name="SurrenderEffectsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 330.0
+offset_right = 1079.0
+offset_bottom = 583.0
+
+[connection signal="pressed" from="DeclareWarButton" to="." method="_on_declare_war_button_pressed"]
+[connection signal="pressed" from="SurrenderButton" to="." method="_on_surrender_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

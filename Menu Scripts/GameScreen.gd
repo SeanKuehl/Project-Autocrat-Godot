@@ -12,12 +12,25 @@ var rebellionThreshold = -1000
 
 func _ready():
 	
+	
+	HandleWarTransfer()
+	
 	DisplayCastes()
 	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
 	$TurnCountLabel.text = "Turn: " +str(turnNumber)
 	$securityPointsLabel.text = "Security Points: " + str(securityPoints)
 	$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 
+			
+func HandleWarTransfer():
+	var temp = GameData.GetWarTransfer()
+	
+	if temp == [-1]:
+		#do not complete transfer
+		pass
+	else:
+		securityPoints = temp[0]
+		economyPoints = temp[1]
 			
 func DisplayCastes():
 	
@@ -95,3 +108,10 @@ func _on_end_turn_pressed():
 		
 		
 		
+
+
+func _on_war_pressed():
+	GameData.SetWarTransfer(securityPoints,economyPoints)
+	get_tree().change_scene_to_file("res://Menus/WarMenu.tscn")
+	
+	

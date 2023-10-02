@@ -10,11 +10,34 @@ var casteIDBase = 1
 
 var editCaste = 0
 
+var syncSecurityPoints = 0
+var syncEconomyPoints = 0
+var warSync = false
+var activeWar = false
+var turnsAtWar = 0
+
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")
 const rightBase = preload("res://Game Data Scripts/Right.gd")
 
 #this file will be used for things like file reading functions, music loading
 #functions and the like that are used as the base for other script functions
+
+
+func SetWarTransfer(newSec,newEcon):
+	syncSecurityPoints = newSec
+	syncEconomyPoints = newEcon
+	warSync = true
+	
+func GetWarTransfer():
+	if warSync:
+		warSync = false
+		return [syncSecurityPoints, syncEconomyPoints]
+	else:
+		return [-1]
+		
+func GetWarEffects():
+	#this is called each turn there is a war
+	pass
 
 
 func ReadLinesFromFile(fileName):
