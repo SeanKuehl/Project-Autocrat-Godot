@@ -16,23 +16,23 @@ script = ExtResource("1_augo1")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 276.0
-offset_bottom = 136.0
+offset_right = 265.0
+offset_bottom = 194.0
 mouse_filter = 2
 
 [node name="CasteTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 11.0
-offset_right = 152.0
-offset_bottom = 34.0
+offset_left = 12.0
+offset_top = 7.0
+offset_right = 52.0
+offset_bottom = 30.0
 
 [node name="CasteDescription" type="Label" parent="."]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 35.0
-offset_right = 252.0
-offset_bottom = 72.0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 255.0
+offset_bottom = 77.0
 
 [node name="EditButton" type="Button" parent="."]
 layout_mode = 0
@@ -44,16 +44,16 @@ text = "Edit"
 
 [node name="Approval" type="Label" parent="."]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 97.0
-offset_right = 75.0
-offset_bottom = 120.0
+offset_left = 12.0
+offset_top = 99.0
+offset_right = 52.0
+offset_bottom = 122.0
 
 [node name="Limitedness" type="Label" parent="."]
 layout_mode = 0
-offset_left = 131.0
-offset_top = 96.0
-offset_right = 171.0
-offset_bottom = 119.0
+offset_left = 17.0
+offset_top = 147.0
+offset_right = 57.0
+offset_bottom = 170.0
 
 [connection signal="pressed" from="EditButton" to="." method="_on_edit_button_pressed"]

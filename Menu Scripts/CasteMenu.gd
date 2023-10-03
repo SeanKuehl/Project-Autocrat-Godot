@@ -40,6 +40,9 @@ func HideMe():
 	$CreateButton.hide()
 	$CancelButton.hide()
 	
+	$RulingClassCheck.hide()
+	$LowerClassCheck.hide()
+	
 func ShowMe():
 	$Panel.mouse_filter = MOUSE_FILTER_STOP
 	$Panel.show()
@@ -54,6 +57,9 @@ func ShowMe():
 	$RightButton.show()
 	$CreateButton.show()
 	$CancelButton.show()
+	
+	$RulingClassCheck.show()
+	$LowerClassCheck.show()
 	
 
 func CreateCaste():

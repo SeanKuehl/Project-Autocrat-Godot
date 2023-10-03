@@ -9,8 +9,8 @@ func DisplayCaste(passedCaste: Caste):
 	thisCaste = passedCaste
 	$CasteTitle.text = passedCaste.GetTitle()
 	$CasteDescription.text = passedCaste.GetDescription()
-	$Approval.text = str(passedCaste.GetApproval() + passedCaste.GetRelativeApproval())
-	$Limitedness.text = str(passedCaste.GetLimitedness())
+	$Approval.text = "Approval: " +str(passedCaste.GetApproval())
+	$Limitedness.text = "Limitedness: " +str(passedCaste.GetLimitedness())
 
 
 

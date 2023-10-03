@@ -59,6 +59,8 @@ func GetLimitedness():
 	for selection in casteSelections:
 		var choices = selection.GetChoices()
 		totalOptions = len(choices)
+		print(choices)
+		print(totalOptions)
 		for x in choices:
 			if x == 1:
 				numberOfChoicesMade += 1
@@ -69,6 +71,10 @@ func GetLimitedness():
 		else:
 			#they made some choices and not others
 			limitednessScore += numberOfChoicesMade / totalOptions	#include men but not women? 1/2
+			#above is doing integer division and not producing a decimal like it should
+			numberOfChoicesMade = 0
+			
+		print(limitednessScore)
 			
 	return limitednessScore
 				
