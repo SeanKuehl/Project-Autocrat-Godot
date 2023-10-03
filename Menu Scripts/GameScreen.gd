@@ -13,7 +13,12 @@ var rebellionThreshold = -1000
 func _ready():
 	
 	
-	HandleWarTransfer()
+	if GameData.GetWarStatus() == "War Ended":
+		#we just surrendered, apply penalties
+		rebellionPoints += GameData.GetTurnsAtWar() * -100
+		economyPoints += GameData.GetTurnsAtWar() * -1000
+		GameData.SetWarStatus("No War") 
+		GameData.SetTurnsAtWar(0)
 	
 	DisplayCastes()
 	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
@@ -22,15 +27,7 @@ func _ready():
 	$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 
 			
-func HandleWarTransfer():
-	var temp = GameData.GetWarTransfer()
-	
-	if temp == [-1]:
-		#do not complete transfer
-		pass
-	else:
-		securityPoints = temp[0]
-		rebellionPoints = temp[1]
+
 			
 func DisplayCastes():
 	
@@ -94,9 +91,14 @@ func _on_end_turn_pressed():
 	if len(GameData.castes) > 1:
 		#at least 2 castes
 		turnNumber += 1
-		GameData.IncrementTurnsAtWar()
+		
+		if GameData.GetWarStatus() == "War":
+			GameData.SetTurnsAtWar(GameData.GetTurnsAtWar() + 1)
+			
+			securityPoints += GameData.GetTurnsAtWar() * -500
+		
 		CalculateRebellionAndSecurityPoints()
-		securityPoints -= GameData.GetTurnsAtWar() * 500	#if not at war and zero, no effect
+		
 		
 		
 		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
@@ -115,7 +117,7 @@ func _on_end_turn_pressed():
 
 
 func _on_war_pressed():
-	GameData.SetWarTransfer(securityPoints,economyPoints)
+	
 	get_tree().change_scene_to_file("res://Menus/WarMenu.tscn")
 	
 	

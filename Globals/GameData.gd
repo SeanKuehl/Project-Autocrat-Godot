@@ -10,12 +10,8 @@ var casteIDBase = 1
 
 var editCaste = 0
 
-var syncSecurityPoints = 0
-var syncRebellionPoints = 0
-var approvalPenalty = 0
-var warSync = false
-var activeWar = false
 var turnsAtWar = 0
+var warStatus = "No War"
 
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")
 const rightBase = preload("res://Game Data Scripts/Right.gd")
@@ -23,32 +19,18 @@ const rightBase = preload("res://Game Data Scripts/Right.gd")
 #this file will be used for things like file reading functions, music loading
 #functions and the like that are used as the base for other script functions
 
-
-func SetWarTransfer(newSec,newReb):
-	syncSecurityPoints = newSec
-	syncRebellionPoints = newReb
-	warSync = true
-	
-func GetWarTransfer():
-	if warSync:
-		warSync = false
-		return [syncSecurityPoints, syncRebellionPoints]
-	else:
-		return [-1]
-		
 func GetTurnsAtWar():
 	return turnsAtWar
-	
-func IncrementTurnsAtWar():
-	turnsAtWar += 1
-	
 
-func StartWar():
-	activeWar = true
+func SetTurnsAtWar(newTurn):
+	turnsAtWar = newTurn
 	
-func EndWar():
-	activeWar = false
-	turnsAtWar = 0
+func GetWarStatus():
+	return warStatus
+	
+func SetWarStatus(newStatus):
+	warStatus = newStatus
+
 	
 
 
