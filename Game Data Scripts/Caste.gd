@@ -52,29 +52,34 @@ func GetApproval():
 	return totalApproval
 	
 func GetLimitedness():
-	var limitednessScore = 0
-	var numberOfChoicesMade = 0
-	var totalOptions = 0
+	var limitednessScore = 0.0
+	var numberOfChoicesMade = 0.0
+	var totalOptions = 0.0
 	
 	for selection in casteSelections:
 		var choices = selection.GetChoices()
 		totalOptions = len(choices)
-		print(choices)
-		print(totalOptions)
-		for x in choices:
-			if x == 1:
-				numberOfChoicesMade += 1
-				
-		if numberOfChoicesMade == 0:
-			#they made none, default to all included
-			limitednessScore += 1	#same as total options / total options
-		else:
-			#they made some choices and not others
-			limitednessScore += numberOfChoicesMade / totalOptions	#include men but not women? 1/2
-			#above is doing integer division and not producing a decimal like it should
-			numberOfChoicesMade = 0
+		
+		limitednessScore += HandleSelections(choices, totalOptions, limitednessScore)
 			
-		print(limitednessScore)
+	return limitednessScore
+	
+	
+func HandleSelections(choices, totalOptions, limitednessScore):
+	var numberOfChoicesMade = 0.0
+	#choices is array like [0,1,0] etc.
+	for x in choices:
+		if x == 1:
+			numberOfChoicesMade += 1
+				
+	if numberOfChoicesMade == 0:
+		#they made none, default to all included
+		limitednessScore += 1	#same as total options / total options
+	else:
+		#they made some choices and not others
+		limitednessScore += numberOfChoicesMade / totalOptions	#include men but not women? 1/2
+		#above is doing integer division and not producing a decimal like it should
+		numberOfChoicesMade = 0
 			
 	return limitednessScore
 				
