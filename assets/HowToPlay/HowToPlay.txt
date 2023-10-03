@@ -1,0 +1,33 @@
+Hello and welcome ruler to your new nation. In order to stay in power you need to keep the people in check.
+The main way you keep the people in check is with Castes. In order to make a caste you'll need to select
+who should belong to it and what rights they should have as well as if they are a ruling caste or lower
+caste.
+1
+A Selection determines who is in the caste. If you don't select anyone all groups will be included.
+The pickier you are, the less people will be in the caste. If the caste is a ruling caste, it will
+not pay taxes but the larger it's population the more security points it will generate. If it's a 
+lower caste the larger it's population the more taxes it generates but also more rebellion points.
+1
+Rights determine what the group of people belonging to the caste can and can't do in your nation.
+This also determines their approval of you. Your ruling class should have a higher approval of you
+than the lower classes. If the ruling class has more than 20 approval, it will generate security points
+and if a lower class has less than -20 approval it will generate rebellion points.
+1
+Security Points are needed to fight wars and take actions to keep your nation safe. Rebellion points
+are a culmination of the unrest of the lower classes. If they get too high, there will be a rebellion
+and you'll be overthrown. Economy points are essentially money that can be used appease the lower classes
+or feed the thirst of entitled family members.
+1
+You can start a war at anytime. Each turn you are at war you will up more and more security points.
+If you surrender a war you will gain rebellion points and lose economy points. If you win a war
+you will erase all rebellion points and win lots of economy points. Sometimes, it's a risk worth
+taking. The biggest problem is that you never know how long a war could drag on for.
+After all is said and done it's only your people's lives, what's there to lose?
+1
+Family is great, at being corrupt. Even though no one could ever be as great as you, no one rules
+forever. Sooner or later you will need an heir. To do this you will need a spouse and children.
+Each of these family members will have three traits. Some good and some bad. Sometimes they will
+make ruling easier and sometimes they'll throw a tantrum if they can't buy new designer shoes.
+Either way, it's a risk you'll have to take. Be careful about any family member's approval getting
+too low, they may try and overthrow you!
+1

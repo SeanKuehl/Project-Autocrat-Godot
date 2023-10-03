@@ -45,6 +45,24 @@ func ReadLinesFromFile(fileName):
 
 	return content
 	
+func LoadHowToPlayFromFile():
+	var content = ReadLinesFromFile("res://assets/HowToPlay/HowToPlay.txt")
+	var noNew = content.split("\n") #get rid of newlines
+	var howToEntries = []
+	var thisString = ""
+	
+	for x in content:
+		if x == "1":
+			#start of new entry
+			howToEntries.append(thisString)
+			thisString = ""
+		elif x != "1":
+			thisString += x
+	
+	return howToEntries
+	
+	
+	
 func LoadSelectionsFromFile():
 	var content = ReadLinesFromFile("res://assets/Game Data/Selections.txt")
 	var noNew = content.split("\n") #get rid of newlines
