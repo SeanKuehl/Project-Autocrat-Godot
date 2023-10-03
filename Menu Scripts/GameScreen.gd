@@ -10,6 +10,8 @@ var economyPoints = 0
 var gameOverTurn = 20
 var rebellionThreshold = -1000
 
+var randGenerator = RandomNumberGenerator.new()
+
 func _ready():
 	
 	
@@ -21,10 +23,7 @@ func _ready():
 		GameData.SetTurnsAtWar(0)
 	
 	DisplayCastes()
-	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
-	$TurnCountLabel.text = "Turn: " +str(turnNumber)
-	$securityPointsLabel.text = "Security Points: " + str(securityPoints)
-	$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
+	PopulateInformationLabels()
 
 			
 
@@ -77,12 +76,71 @@ func CalculateRebellionAndSecurityPoints():
 		#econ points is lower class limitedness - ruling class limitedness * 1000
 		economyPoints += economyPointHelper * 1000
 	
+func GetIfWarContinues():
+	var chance = 0
+	#get the current turns at war and use that to calculate a chance of it ending.
+	if GameData.GetTurnsAtWar() <= 5:
+		#one in twenty chance it ends
+		chance = randGenerator.randi_range(1,20)
+		if chance <= 1:
+			#war ends, you win. Else, it continues
+			HandleWarVictory()
+			
+		
+	elif GameData.GetTurnsAtWar() <= 10:
+		#one in ten chance it ends
+		chance = randGenerator.randi_range(1,10)
+		if chance <= 1:
+			#war ends, you win. Else, it continues
+			HandleWarVictory()
+			
+	elif GameData.GetTurnsAtWar() <= 20:
+		#one in five chance it ends
+		chance = randGenerator.randi_range(1,5)
+		if chance <= 1:
+			#war ends, you win. Else, it continues
+			HandleWarVictory()
+			
+func HandleWarVictory():
+	var warTurns = GameData.GetTurnsAtWar()
+	var warWinnings = 0
+	
+	GameData.SetWarStatus("No War")
+	GameData.SetTurnsAtWar(0)
+	
+	#win money based on how long you were at war. Somewhat random
+	#also, winning a war stop any rebellion
+	
+	if warTurns <= 5:
+		#between 5000 and 10000
+		warWinnings = randGenerator.randi_range(5000,10000)
+		economyPoints += warWinnings
+		rebellionPoints = 0
+	if warTurns <= 10:
+		#between 10000 and 20000
+		warWinnings = randGenerator.randi_range(10000,20000)
+		economyPoints += warWinnings
+		rebellionPoints = 0
+	if warTurns <= 20:
+		#between 20000 and 30000
+		warWinnings = randGenerator.randi_range(20000,30000)
+		economyPoints += warWinnings
+		rebellionPoints = 0
+	
+	
+	
 		
 
+func PopulateInformationLabels():
+	$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
+	$TurnCountLabel.text = "Turn: " +str(turnNumber)
+	$SecurityPointsLabel.text = "Security Points: " + str(securityPoints)
+	$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 
 func _on_create_caste_button_pressed():
 	get_tree().change_scene_to_file("res://Menus/CasteMenu.tscn")
 	get_tree().get_current_scene().ready
+	
 	
 	
 
@@ -96,15 +154,15 @@ func _on_end_turn_pressed():
 			GameData.SetTurnsAtWar(GameData.GetTurnsAtWar() + 1)
 			
 			securityPoints += GameData.GetTurnsAtWar() * -500
+			
+			#get if war end
+			GetIfWarContinues()
 		
 		CalculateRebellionAndSecurityPoints()
 		
 		
+		PopulateInformationLabels()
 		
-		$RebellionPointsLabel.text = "Rebellion Points: " + str(rebellionPoints)
-		$TurnCountLabel.text = "Turn: " +str(turnNumber)
-		$securityPointsLabel.text = "Security Points: " + str(securityPoints)
-		$EconomyPointsLabel.text = "Economy Points: " + str(economyPoints)
 		
 	if rebellionPoints <= rebellionThreshold:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")

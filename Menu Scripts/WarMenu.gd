@@ -1,6 +1,7 @@
 extends Control
 
-
+#still need to do random length war/random war continue and also need to set up 
+#getting rewards when you win/pop up event
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,10 +16,10 @@ func _ready():
 		
 		$SurrenderEffectsLabel.text = surrenderMessage
 
+	var warDesc = "Each turn you are at war you will lose 500 security points.\n This will increase by 500 each turn until the war ends.\n If you run out of security points, you are conquered."
+	$WarDescriptionLabel.text = warDesc
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 
 	
