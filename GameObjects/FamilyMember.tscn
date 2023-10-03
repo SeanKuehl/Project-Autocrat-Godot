@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjtjttbpcagv1"]
+
+[ext_resource type="Texture2D" uid="uid://bigyq2e3038tk" path="res://icon.svg" id="1_irsy4"]
+
+[node name="FamilyMember" type="Button"]
+offset_left = -69.0
+offset_top = -74.0
+offset_right = 67.0
+offset_bottom = 62.0
+icon = ExtResource("1_irsy4")
+
+[node name="TraitOne" type="Sprite2D" parent="."]
+position = Vector2(13, 162)
+scale = Vector2(0.335938, 0.367188)
+texture = ExtResource("1_irsy4")
+
+[node name="TraitTwo" type="Sprite2D" parent="."]
+position = Vector2(72, 164)
+scale = Vector2(0.335938, 0.367188)
+texture = ExtResource("1_irsy4")
+
+[node name="TraitThree" type="Sprite2D" parent="."]
+position = Vector2(125, 163)
+scale = Vector2(0.335938, 0.367188)
+texture = ExtResource("1_irsy4")

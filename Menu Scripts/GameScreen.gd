@@ -121,3 +121,7 @@ func _on_war_pressed():
 	get_tree().change_scene_to_file("res://Menus/WarMenu.tscn")
 	
 	
+
+
+func _on_family_pressed():
+	get_tree().change_scene_to_file("res://Menus/FamilyMenu.tscn")
