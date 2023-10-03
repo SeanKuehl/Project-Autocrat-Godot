@@ -59,16 +59,16 @@ func CalculateRebellionAndSecurityPoints():
 	for caste in GameData.castes:
 		
 		if caste.GetRulingClass() == true:
-			economyPointHelper -= caste.GetLimitedness()
-			if caste.GetApproval() >= 20:
-				var points = caste.GetApproval() * caste.GetLimitedness()
-				securityPoints += points
+			economyPointHelper -= caste.GetApproval() * caste.GetLimitedness()
+			
+			var points = caste.GetApproval() * caste.GetLimitedness()
+			securityPoints += points
 				
 		elif caste.GetRulingClass() == false:
-			economyPointHelper += caste.GetLimitedness()
-			if caste.GetApproval() <= -20:
-				var points = caste.GetApproval() * caste.GetLimitedness()
-				rebellionPoints += points
+			economyPointHelper += caste.GetApproval() * caste.GetLimitedness()
+			
+			var points = caste.GetApproval() * caste.GetLimitedness()
+			rebellionPoints += points
 		
 		
 	if economyPointHelper > 0:
