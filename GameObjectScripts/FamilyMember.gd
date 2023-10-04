@@ -23,7 +23,17 @@ func _on_pressed():
 	#send signal to display traits, name etc
 	emit_signal("ShowMember", memberName, gender, traits)
 	
+
+func GetRulerTraits():
+	var traitOne = "Iron Fist,Kindness is weakness"
 	
+	
+func GetSpouseTraits():
+	pass
+	
+func GetChildTraits():
+	pass
+
 	
 func GenerateFamilyMember():
 	var randNum = rng.randi_range(1,2)
