@@ -45,6 +45,22 @@ func ReadLinesFromFile(fileName):
 
 	return content
 	
+	
+func LoadBoysNamesFromFile():
+	var content = ReadLinesFromFile("res://assets/FamilyData/MaleNames.txt")
+	var noNew = content.split("\n") #get rid of newlines
+	var names = []
+	
+	return names
+	
+func LoadGirlsNamesFromFile():
+	var content = ReadLinesFromFile("res://assets/FamilyData/FemaleNames.txt")
+	var noNew = content.split("\n") #get rid of newlines
+	var names = []
+	
+	return names
+	
+	
 func LoadHowToPlayFromFile():
 	var content = ReadLinesFromFile("res://assets/HowToPlay/HowToPlay.txt")
 	var noNew = content.split("\n") #get rid of newlines

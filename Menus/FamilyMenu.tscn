@@ -67,4 +67,35 @@ offset_top = 409.0
 offset_right = 815.0
 offset_bottom = 545.0
 
+[node name="MemberDisplay" type="Label" parent="."]
+layout_mode = 0
+offset_left = 849.0
+offset_top = 4.0
+offset_right = 1145.0
+offset_bottom = 409.0
+
+[node name="KillButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 507.0
+offset_right = 922.0
+offset_bottom = 551.0
+text = "Kill"
+
+[node name="BribeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 930.0
+offset_top = 508.0
+offset_right = 990.0
+offset_bottom = 553.0
+text = "Bribe"
+
+[node name="HierButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 514.0
+offset_right = 1093.0
+offset_bottom = 550.0
+text = "Make Hier"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
