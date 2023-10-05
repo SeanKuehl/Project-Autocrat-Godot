@@ -1,3 +1,3 @@
-Leader,Iron First,Keep the people in line
-Leader,Glorious,Your glory is unquestionable
-Leader,Petty,You like WHAT brand of coffee?
+Devout,my love and my always,+20 to the chance of having children
+Smelly,a shower is a kinds of food right?,-20 to the chance of having children
+Average,I could be worse,average chance of having children

@@ -1,1 +1,12 @@
-
+pacifist,think of the children!,+5 approval when not at war
+warmonger,slaughter them all!,+5 approval when at war
+aristocrat,it is well being well-to-do,+5 approval when ruling class has +30 or higher approval
+sympathizer,they have a point you know,-5 approval when ruling class has -30 or lower approval
+loner,who needs all these jerks?,-5 approval when you try for a child
+extrovert,I love to meet a new face,+5 approval when you try for a child
+entitled,what do you mean it's not my money?,-1000 economy points each turn
+frugle,not too expensive now,+500 economy points each turn
+diplomatic,calm down and maybe we can all get along,-500 rebellion points each turn
+rebellious,I'll tell you EXACTLY what I think of that!,+500 rebellion points each turn
+careless,assasins are a myth,-300 security points each turn
+paranoid,They're in the walls!,+500 security points each turn
