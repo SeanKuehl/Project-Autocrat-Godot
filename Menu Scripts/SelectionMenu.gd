@@ -16,6 +16,10 @@ func Init():
 	SetSelection()
 	
 
+func EditExisting(passedSelections):
+	selections = passedSelections
+	SetNavigationText()
+	SetSelection()
 	
 	
 func SetNavigationText():

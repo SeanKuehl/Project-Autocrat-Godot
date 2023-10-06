@@ -14,6 +14,12 @@ func Init():
 	SetRight()
 	SetNavigationText()
 	
+func EditExisting(passedRights):
+	rights = passedRights
+	
+	SetRight()
+	SetNavigationText()
+	
 func SetRight():
 	SetTitle()
 	ClearOptionsAndEffects()

@@ -84,6 +84,9 @@ func EditCaste(passedCaste):
 		$RulingClassCheck.button_pressed = true
 	else:
 		$LowerClassCheck.button_pressed = true
+		
+	$TitleInput.text = menuCaste.GetTitle()
+	$DescriptionInput.text = menuCaste.GetDescription()
 	
 	
 	selectionsSet = true
@@ -138,7 +141,11 @@ func _on_selection_button_pressed():
 	add_child(selectionMenu)
 	HideMe()
 	selectionMenu.ShowMe()
-	selectionMenu.Init()
+	
+	if selectionsSet:
+		selectionMenu.EditExisting(menuSelections)
+	else:
+		selectionMenu.Init()
 	
 	
 
@@ -158,7 +165,11 @@ func _on_right_button_pressed():
 	HideMe()
 	
 	rightMenu.ShowMe()
-	rightMenu.Init()
+	
+	if rightsSet:
+		rightMenu.EditExisting(menuRights)
+	else:
+		rightMenu.Init()
 	
 	
 func RightMenuDone(newRights):
