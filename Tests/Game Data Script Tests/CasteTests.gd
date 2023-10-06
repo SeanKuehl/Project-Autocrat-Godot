@@ -68,5 +68,37 @@ func test_HandleSelections_veryLarge():
 	assert_float(actual).is_equal(expected)
 	
 	
+func test_HandleSelections_SmallSequence():
+	
+	var test = casteClass.new()
+	var choices = [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+	var totalOptions = len(choices)
+	var limitednessScore = 0.0
+	
+	var actual = 0
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	var expected = (2.0 / totalOptions) * 2
+	
+	assert_float(actual).is_equal(expected)
+	
+	
+func test_HandleSelections_LargeSequence():
+	
+	var test = casteClass.new()
+	var choices = [1, 0, 1, 0]
+	var totalOptions = len(choices)
+	var limitednessScore = 0.0
+	
+	var actual = 0
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	actual += test.HandleSelections(choices, totalOptions, limitednessScore)
+	var expected = (2.0 / totalOptions) * 4
+	
+	assert_float(actual).is_equal(expected)
+	
+	
 
 	

@@ -60,7 +60,8 @@ func GetLimitedness():
 		var choices = selection.GetChoices()
 		totalOptions = len(choices)
 		
-		limitednessScore += HandleSelections(choices, totalOptions, limitednessScore)
+		limitednessScore = HandleSelections(choices, totalOptions, limitednessScore)
+		print(limitednessScore)
 			
 	return limitednessScore
 	
