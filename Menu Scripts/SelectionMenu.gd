@@ -330,3 +330,9 @@ func _on_next_pressed():
 	
 
 
+
+
+func _on_exit_button_pressed():
+	UpdateSelectionChoices()
+	SelectionDone.emit(selections)
+	HideMe()

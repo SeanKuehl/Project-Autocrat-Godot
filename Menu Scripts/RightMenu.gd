@@ -198,3 +198,9 @@ func _on_option_4_pressed():
 		$Option2.button_pressed = false
 		$Option3.button_pressed = false
 		$Option1.button_pressed = false
+
+
+func _on_exit_button_pressed():
+	UpdateRight()
+	RightDone.emit(rights)
+	HideMe()

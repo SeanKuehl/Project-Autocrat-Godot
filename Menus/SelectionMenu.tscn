@@ -103,5 +103,15 @@ offset_right = 615.0
 offset_bottom = 599.0
 text = "0/0"
 
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 103.0
+offset_bottom = 48.0
+text = "Exit
+"
+
 [connection signal="pressed" from="Last" to="." method="_on_last_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
