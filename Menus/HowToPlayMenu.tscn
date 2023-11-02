@@ -34,8 +34,7 @@ offset_bottom = 623.0
 text = "Last"
 
 [node name="ExplanationPicture" type="Sprite2D" parent="."]
-position = Vector2(622, 391)
-scale = Vector2(5.32813, 2.59375)
+position = Vector2(605, 324)
 texture = ExtResource("2_grg4f")
 
 [node name="ExplanationLabel" type="Label" parent="."]
