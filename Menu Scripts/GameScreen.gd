@@ -8,7 +8,7 @@ var securityPoints = 0
 var economyPoints = 0
 
 var gameOverTurn = 20
-var rebellionThreshold = -1000
+var rebellionThreshold = -2000
 
 var randGenerator = RandomNumberGenerator.new()
 
@@ -55,22 +55,24 @@ func DisplayCastes():
 		
 func CalculateRebellionAndSecurityPoints():
 	var economyPointHelper = 0
-	
+	print(GameData.castes)
 	for caste in GameData.castes:
 		
 		if caste.GetRulingClass() == true:
 			economyPointHelper -= caste.GetApproval() * caste.GetLimitedness()
 			
+			
 			var points = caste.GetApproval() * caste.GetLimitedness()
 			securityPoints += points
 				
 		elif caste.GetRulingClass() == false:
-			economyPointHelper += caste.GetApproval() * caste.GetLimitedness()
+			economyPointHelper += abs(caste.GetApproval() * caste.GetLimitedness())
+			
 			
 			var points = caste.GetApproval() * caste.GetLimitedness()
 			rebellionPoints += points
 		
-		
+	
 	if economyPointHelper > 0:
 		#ruling class doesn't pay taxes, working class does
 		#econ points is lower class limitedness - ruling class limitedness * 1000
