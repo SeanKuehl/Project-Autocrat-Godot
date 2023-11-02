@@ -4,6 +4,8 @@ extends Control
 var textEntries = []
 var entriesIndex = 0
 
+var imageList = ["CasteMenu.png", "selections.png", "rights.png", "general.png", "general.png", "war.png", "general.png"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	textEntries = GameData.LoadHowToPlayFromFile()
@@ -16,6 +18,7 @@ func _process(delta):
 	
 func SetEntry():
 	$ExplanationLabel.text = textEntries[entriesIndex]
+	$ExplanationPicture.texture = load("res://assets/HowToPlay/Images/"+imageList[entriesIndex])
 
 
 func _on_next_button_pressed():

@@ -13,6 +13,8 @@ var editCaste = 0
 var turnsAtWar = 0
 var warStatus = "No War"
 
+var turnAndPoints = [0,0,0,0]
+
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")
 const rightBase = preload("res://Game Data Scripts/Right.gd")
 

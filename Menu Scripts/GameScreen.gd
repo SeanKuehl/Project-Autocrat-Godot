@@ -15,6 +15,14 @@ var randGenerator = RandomNumberGenerator.new()
 func _ready():
 	
 	
+	if GameData.turnAndPoints[0] != 0:
+		#this to to restore state after change to another scene
+		turnNumber = GameData.turnAndPoints[0]
+		rebellionPoints = GameData.turnAndPoints[1]
+		securityPoints = GameData.turnAndPoints[2]
+		economyPoints = GameData.turnAndPoints[3]
+		
+	
 	if GameData.GetWarStatus() == "War Ended":
 		#we just surrendered, apply penalties
 		rebellionPoints += GameData.GetTurnsAtWar() * -100
@@ -177,7 +185,7 @@ func _on_end_turn_pressed():
 
 
 func _on_war_pressed():
-	
+	GameData.turnAndPoints = [turnNumber, rebellionPoints, securityPoints, economyPoints]
 	get_tree().change_scene_to_file("res://Menus/WarMenu.tscn")
 	
 	
