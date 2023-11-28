@@ -33,6 +33,8 @@ func _ready():
 	DisplayCastes()
 	PopulateInformationLabels()
 
+	$RebellionBar.max_value = abs(rebellionThreshold)
+	
 			
 
 			
@@ -173,6 +175,7 @@ func _on_end_turn_pressed():
 		
 		PopulateInformationLabels()
 		
+	$RebellionBar.value = abs(rebellionPoints)
 		
 	if rebellionPoints <= rebellionThreshold:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
@@ -193,3 +196,7 @@ func _on_war_pressed():
 
 func _on_family_pressed():
 	get_tree().change_scene_to_file("res://Menus/FamilyMenu.tscn")
+
+
+func _on_button_pressed():
+	$TextureProgressBar.value += 1
