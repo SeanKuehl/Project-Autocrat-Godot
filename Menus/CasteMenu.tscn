@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dys6mh3leei73"]
+[gd_scene load_steps=3 format=3 uid="uid://dys6mh3leei73"]
 
 [ext_resource type="Script" path="res://Menu Scripts/CasteMenu.gd" id="1_wc44j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6s66"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="CasteMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ script = ExtResource("1_wc44j")
 layout_mode = 0
 offset_right = 1159.0
 offset_bottom = 654.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6s66")
 
 [node name="TitleText" type="Label" parent="."]
 layout_mode = 0

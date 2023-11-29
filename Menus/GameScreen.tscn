@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fimy0ld554l3"]
+[gd_scene load_steps=9 format=3 uid="uid://fimy0ld554l3"]
 
 [ext_resource type="Script" path="res://Menu Scripts/GameScreen.gd" id="1_jnsdv"]
 [ext_resource type="Texture2D" uid="uid://bwyk8nejqf0kb" path="res://assets/Images/GameObjects/ProgressBarUnder.png" id="2_8q3vu"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bhwq4rx2wxn10" path="res://assets/Images/GameObjects/eye.png" id="5_ec7iu"]
 [ext_resource type="Texture2D" uid="uid://d05qwdqijmcno" path="res://assets/Images/GameObjects/fist.png" id="6_4a8um"]
 [ext_resource type="Texture2D" uid="uid://rtbfnusvik0m" path="res://assets/Images/GameObjects/clock.png" id="7_rhgl5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwpgu"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -23,6 +26,7 @@ offset_left = -4.0
 offset_top = -1.0
 offset_right = 1155.0
 offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwpgu")
 
 [node name="CreateCasteButton" type="Button" parent="."]
 layout_mode = 0

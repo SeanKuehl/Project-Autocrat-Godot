@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d23qxf5x08fma"]
+[gd_scene load_steps=3 format=3 uid="uid://d23qxf5x08fma"]
 
 [ext_resource type="Script" path="res://Menu Scripts/DefeatScreen.gd" id="1_sbdus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbaf7"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="DefeatScreen" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ script = ExtResource("1_sbdus")
 layout_mode = 0
 offset_right = 1160.0
 offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cbaf7")
 
 [node name="DefeatLabel" type="Label" parent="."]
 layout_mode = 0

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6o2gp4kye27w"]
+[gd_scene load_steps=3 format=3 uid="uid://b6o2gp4kye27w"]
 
 [ext_resource type="Script" path="res://Menu Scripts/VictoryScreen.gd" id="1_a7t5b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00do0"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="VictoryScreen" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ script = ExtResource("1_a7t5b")
 layout_mode = 0
 offset_right = 1161.0
 offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_00do0")
 
 [node name="VictoryLabel" type="Label" parent="."]
 layout_mode = 0

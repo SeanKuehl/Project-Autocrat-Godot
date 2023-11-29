@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://coh53o7nnsyq8"]
+[gd_scene load_steps=3 format=3 uid="uid://coh53o7nnsyq8"]
 
 [ext_resource type="Script" path="res://Menu Scripts/SelectionMenu.gd" id="1_x84fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwn75"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="SelectionMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +18,7 @@ script = ExtResource("1_x84fv")
 layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rwn75")
 
 [node name="SelectionTitle" type="Label" parent="."]
 layout_mode = 0
