@@ -65,7 +65,7 @@ func DisplayCastes():
 		
 func CalculateRebellionAndSecurityPoints():
 	var economyPointHelper = 0
-	print(GameData.castes)
+	
 	for caste in GameData.castes:
 		
 		if caste.GetRulingClass() == true:
