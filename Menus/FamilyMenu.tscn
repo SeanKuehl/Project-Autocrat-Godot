@@ -74,4 +74,22 @@ offset_top = 4.0
 offset_right = 1145.0
 offset_bottom = 409.0
 
+[node name="MarryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 438.0
+offset_right = 959.0
+offset_bottom = 490.0
+text = "Marry"
+
+[node name="TryForChildButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 985.0
+offset_top = 445.0
+offset_right = 1094.0
+offset_bottom = 493.0
+text = "Try for child"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarryButton" to="." method="_on_marry_button_pressed"]
+[connection signal="pressed" from="TryForChildButton" to="." method="_on_try_for_child_button_pressed"]

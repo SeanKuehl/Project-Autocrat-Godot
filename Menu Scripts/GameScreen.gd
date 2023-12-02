@@ -8,7 +8,7 @@ var securityPoints = 0
 var economyPoints = 0
 
 var gameOverTurn = 20
-var rebellionThreshold = -2000
+var rebellionThreshold = -10000
 
 var randGenerator = RandomNumberGenerator.new()
 
@@ -141,7 +141,48 @@ func HandleWarVictory():
 		rebellionPoints = 0	#remove all rebellion points
 	
 	
+
+func GenerateFamilyRandomEvents():
 	
+	#generate events for spouse
+	if GameData.spouseChances != [0,0]:
+		GenerateRandomEvent(GameData.spouseChances[0], GameData.spouseChances[1], "Spouse")
+		
+	if GameData.firstChildChances != [0,0]:
+		GenerateRandomEvent(GameData.firstChildChances[0], GameData.firstChildChances[1], "first child")
+		
+	if GameData.secondChildChances != [0,0]:
+		GenerateRandomEvent(GameData.secondChildChances[0], GameData.secondChildChances[1], "second child")
+		
+	if GameData.thirdChildChances != [0,0]:
+		GenerateRandomEvent(GameData.thirdChildChances[0], GameData.thirdChildChances[1], "third child")
+		
+	if GameData.fourthChildChances != [0,0]:
+		GenerateRandomEvent(GameData.fourthChildChances[0], GameData.fourthChildChances[1], "fourth child")
+
+		
+func GenerateRandomEvent(chance, multiplier, member):
+	var result = randGenerator.randi_range(1,chance)
+	var event = randGenerator.randi_range(1,3)
+	#todo: instead of print statement, register an event that will appear on the
+	#transition screen menu
+	if result == 1:
+		#there will be an event
+		if event == 1:
+			#they want to be pampered
+			var baseCost = 500
+			var fullCost = baseCost * multiplier
+			print("Your "+member+" wants to be pampered. They'll need "+str(fullCost)+" economy points spent on them otherwise they'll lose 5 approval.")
+		elif event == 2:
+			#they want to be promoted
+			var baseCost = 100
+			var fullCost = baseCost * multiplier
+			print("Your "+member+" wants to be promoted. They'll need "+str(fullCost)+" rebellion points spent on them otherwise they'll lose 5 approval.")
+		elif event == 3:
+			#they want to be protected
+			var baseCost = 100
+			var fullCost = baseCost * multiplier
+			print("Your "+member+" wants to be protected while they kill someone. They'll need "+str(fullCost)+" security points spent on them otherwise they'll lose 5 approval.")
 		
 
 func PopulateInformationLabels():
@@ -172,6 +213,8 @@ func _on_end_turn_pressed():
 			GetIfWarContinues()
 		
 		CalculateRebellionAndSecurityPoints()
+		
+		GenerateFamilyRandomEvents()
 		
 		
 		PopulateInformationLabels()

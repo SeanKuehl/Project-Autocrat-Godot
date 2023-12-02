@@ -91,6 +91,7 @@ func GenerateSpouse():
 	gender = "Female"
 	
 	GetSpouseTraits()
+	GameData.spouseChances = [ambition, corruptionMultiplier]
 	
 	
 func GenerateFamilyMember():
