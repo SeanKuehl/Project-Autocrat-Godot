@@ -14,6 +14,12 @@ var turnsAtWar = 0
 var warStatus = "No War"
 var warDifficulty = "easy"
 
+var spouseChances = [0,0]
+var firstChildChances = [0,0]
+var secondChildChances = [0,0]
+var thirdChildChances = [0,0]
+var fourthChildChances = [0,0]
+
 var turnAndPoints = [0,0,0,0]
 
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")

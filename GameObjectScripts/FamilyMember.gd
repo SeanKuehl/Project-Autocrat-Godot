@@ -5,6 +5,9 @@ var gender = ""
 
 var traits = []
 
+var ambition = 0
+var corruptionMultiplier = 0
+
 var rng = RandomNumberGenerator.new()
 
 signal ShowMember(myName, myGender, myTraits)
@@ -36,9 +39,9 @@ func GetSpouseTraits():
 	var spouseOnlyTraits = GameData.LoadSpouseTraitsFromFile()
 	var memberTraits = GameData.LoadMemberTraitsFromFile()
 	
-	var traitOne = spouseOnlyTraits[rng.randi_range(0,len(spouseOnlyTraits)-1)]
-	var traitTwo = memberTraits[rng.randi_range(0,5)]
-	var traitThree = memberTraits[rng.randi_range(6,len(memberTraits)-1)]
+	var traitOne = ["Spouse", "Concubine? Consort? You know, that thing"]
+	var traitTwo = GetAmbition()
+	var traitThree = GetCorruption()
 	
 	traits = [traitOne, traitTwo, traitThree]
 	
@@ -47,12 +50,42 @@ func GetMemberTraits():
 	var memberTraits = GameData.LoadMemberTraitsFromFile()
 	
 	var traitOne = ["Child", "Ungrateful swine"]
-	var traitTwo = memberTraits[rng.randi_range(0,5)]
-	var traitThree = memberTraits[rng.randi_range(6,len(memberTraits)-1)]
+	var traitTwo = GetAmbition()
+	var traitThree = GetCorruption()
 	
 	traits = [traitOne, traitTwo, traitThree]
 
 	
+func GetAmbition():
+	var chance = rng.randi_range(1,3)
+	#chances are 1/16, 1/8 and 1/4
+	
+	if chance == 1:
+		#low chance of random event
+		ambition = 16
+		return ["Low Ambition", "I'm grateful for my place"]
+	elif chance == 2:
+		ambition = 8
+		return ["Average Ambition", "Things could be better"]
+	elif chance == 3:
+		ambition = 4
+		return ["High Ambition", "The world is MINE"]
+		
+
+func GetCorruption():
+	var chance = rng.randi_range(1,3)
+	#mults are 1, 2 and 4
+	
+	if chance == 1:
+		#low corruption
+		corruptionMultiplier = 1
+		return ["Low Corruption", "Keep the change"]
+	elif chance == 2:
+		corruptionMultiplier = 2
+		return ["Average Corruption", "I earned it"]
+	elif chance == 3:
+		corruptionMultiplier = 3
+		return ["High Corruption", "What do you mean YOUR property?"]
 
 func GenerateSpouse():
 	gender = "Female"
