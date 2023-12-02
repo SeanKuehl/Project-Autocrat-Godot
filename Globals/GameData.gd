@@ -12,6 +12,7 @@ var editCaste = 0
 
 var turnsAtWar = 0
 var warStatus = "No War"
+var warDifficulty = "easy"
 
 var turnAndPoints = [0,0,0,0]
 

@@ -34,6 +34,7 @@ func _ready():
 	PopulateInformationLabels()
 
 	$RebellionBar.max_value = abs(rebellionThreshold)
+	$RebellionThresholdLabel.text = "Rebellion happens at: "+str(rebellionThreshold)
 	
 			
 
@@ -91,24 +92,24 @@ func CalculateRebellionAndSecurityPoints():
 func GetIfWarContinues():
 	var chance = 0
 	#get the current turns at war and use that to calculate a chance of it ending.
-	if GameData.GetTurnsAtWar() <= 5:
+	if GameData.warDifficulty == "easy":
 		#one in twenty chance it ends
-		chance = randGenerator.randi_range(1,20)
-		if chance <= 1:
-			#war ends, you win. Else, it continues
-			HandleWarVictory()
-			
-		
-	elif GameData.GetTurnsAtWar() <= 10:
-		#one in ten chance it ends
 		chance = randGenerator.randi_range(1,10)
 		if chance <= 1:
 			#war ends, you win. Else, it continues
 			HandleWarVictory()
 			
-	elif GameData.GetTurnsAtWar() <= 20:
+		
+	elif GameData.warDifficulty == "medium":
+		#one in ten chance it ends
+		chance = randGenerator.randi_range(1,15)
+		if chance <= 1:
+			#war ends, you win. Else, it continues
+			HandleWarVictory()
+			
+	elif GameData.warDifficulty == "hard":
 		#one in five chance it ends
-		chance = randGenerator.randi_range(1,5)
+		chance = randGenerator.randi_range(1,20)
 		if chance <= 1:
 			#war ends, you win. Else, it continues
 			HandleWarVictory()
@@ -123,21 +124,21 @@ func HandleWarVictory():
 	#win money based on how long you were at war. Somewhat random
 	#also, winning a war stop any rebellion
 	
-	if warTurns <= 5:
+	if GameData.warDifficulty == "easy":
 		#between 5000 and 10000
 		warWinnings = randGenerator.randi_range(5000,10000)
 		economyPoints += warWinnings
-		rebellionPoints = 0
-	if warTurns <= 10:
+		rebellionPoints *= 0.5 #cut rebellion points in half
+	if GameData.warDifficulty == "medium":
 		#between 10000 and 20000
 		warWinnings = randGenerator.randi_range(10000,20000)
 		economyPoints += warWinnings
-		rebellionPoints = 0
-	if warTurns <= 20:
+		rebellionPoints *= 0.3	#reduce rebellion points by 70%
+	if GameData.warDifficulty == "hard":
 		#between 20000 and 30000
 		warWinnings = randGenerator.randi_range(20000,30000)
 		economyPoints += warWinnings
-		rebellionPoints = 0
+		rebellionPoints = 0	#remove all rebellion points
 	
 	
 	
