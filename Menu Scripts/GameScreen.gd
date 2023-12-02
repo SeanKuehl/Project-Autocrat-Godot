@@ -1,6 +1,7 @@
 extends Control
 
 const casteDisplayScene = preload("res://GameObjects/CasteDisplay.tscn")
+const turnTransitionScene = preload("res://Menus/TurnTransitionMenu.tscn")
 
 var turnNumber = 1
 var rebellionPoints = 0
@@ -11,6 +12,8 @@ var gameOverTurn = 20
 var rebellionThreshold = -10000
 
 var randGenerator = RandomNumberGenerator.new()
+
+var familyEvents = []
 
 func _ready():
 	
@@ -172,17 +175,23 @@ func GenerateRandomEvent(chance, multiplier, member):
 			#they want to be pampered
 			var baseCost = 500
 			var fullCost = baseCost * multiplier
-			print("Your "+member+" wants to be pampered. They'll need "+str(fullCost)+" economy points spent on them otherwise they'll lose 5 approval.")
+			
+			var eventText = "Your "+member+" wants to be pampered. They'll need "+str(fullCost)+" economy points spent on them otherwise they'll lose 5 approval."
+			familyEvents.append([member, eventText, event, fullCost, -5])
 		elif event == 2:
 			#they want to be promoted
 			var baseCost = 100
 			var fullCost = baseCost * multiplier
-			print("Your "+member+" wants to be promoted. They'll need "+str(fullCost)+" rebellion points spent on them otherwise they'll lose 5 approval.")
+			
+			var eventText = "Your "+member+" wants to be promoted. They'll need "+str(fullCost)+" rebellion points spent on them otherwise they'll lose 5 approval."
+			familyEvents.append([member, eventText, event, fullCost, -5])
 		elif event == 3:
 			#they want to be protected
 			var baseCost = 100
 			var fullCost = baseCost * multiplier
-			print("Your "+member+" wants to be protected while they kill someone. They'll need "+str(fullCost)+" security points spent on them otherwise they'll lose 5 approval.")
+			
+			var eventText = "Your "+member+" wants to be protected while they kill someone. They'll need "+str(fullCost)+" security points spent on them otherwise they'll lose 5 approval."
+			familyEvents.append([member, eventText, event, fullCost, -5])
 		
 
 func PopulateInformationLabels():
@@ -196,7 +205,14 @@ func _on_create_caste_button_pressed():
 	get_tree().get_current_scene().ready
 	
 	
+func ShowTurnTransitionScreen():
+	var newTransition = turnTransitionScene.instantiate()
+	newTransition.global_position = Vector2(0,0)
 	
+	newTransition.PopulateEvents(familyEvents)
+	add_child(newTransition)
+	
+			
 
 
 func _on_end_turn_pressed():
@@ -225,6 +241,8 @@ func _on_end_turn_pressed():
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
 	elif turnNumber == gameOverTurn:
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")
+		
+	ShowTurnTransitionScreen()
 		
 		
 		
