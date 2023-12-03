@@ -25,6 +25,7 @@ offset_top = 9.0
 offset_right = 249.0
 offset_bottom = 90.0
 autowrap_mode = 2
+clip_text = true
 
 [node name="PlacateButton" type="Button" parent="."]
 layout_mode = 0

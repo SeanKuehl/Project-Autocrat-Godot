@@ -22,20 +22,29 @@ func _process(delta):
 	pass
 	
 	
-func FillEvent(eventText, member, type, cost, approval):
-	$NoticeLabel.text = eventText
-	appliedMember = member
-	eventType = type
-	eventCost = cost
-	eventApproval = approval
+func FillEvent(event):
+	
+	$NoticeLabel.text = event[1]
+	appliedMember = event[0]
+	eventType = event[2]
+	eventCost = event[3]
+	eventApproval = event[4]
 
 
 func _on_placate_button_pressed():
 	emit_signal("Placate", appliedMember, eventType, eventCost)
+	
+	queue_free()
+	
+	
 
 
 func _on_deny_button_pressed():
 	emit_signal("Deny", appliedMember, eventApproval)
+	
+	queue_free()
+	
+	
 	
 	
 	

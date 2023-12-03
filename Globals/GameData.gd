@@ -14,11 +14,15 @@ var turnsAtWar = 0
 var warStatus = "No War"
 var warDifficulty = "easy"
 
+var familyEvents = []
+
 var spouseChances = [0,0]
 var firstChildChances = [0,0]
 var secondChildChances = [0,0]
 var thirdChildChances = [0,0]
 var fourthChildChances = [0,0]
+
+var familyMemberApprovals = [0,0,0,0,0]
 
 var turnAndPoints = [0,0,0,0]
 

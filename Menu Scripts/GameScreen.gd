@@ -13,9 +13,10 @@ var rebellionThreshold = -10000
 
 var randGenerator = RandomNumberGenerator.new()
 
-var familyEvents = []
+
 
 func _ready():
+	
 	
 	
 	if GameData.turnAndPoints[0] != 0:
@@ -149,7 +150,7 @@ func GenerateFamilyRandomEvents():
 	
 	#generate events for spouse
 	if GameData.spouseChances != [0,0]:
-		GenerateRandomEvent(GameData.spouseChances[0], GameData.spouseChances[1], "Spouse")
+		GenerateRandomEvent(GameData.spouseChances[0], GameData.spouseChances[1], "spouse")
 		
 	if GameData.firstChildChances != [0,0]:
 		GenerateRandomEvent(GameData.firstChildChances[0], GameData.firstChildChances[1], "first child")
@@ -177,21 +178,21 @@ func GenerateRandomEvent(chance, multiplier, member):
 			var fullCost = baseCost * multiplier
 			
 			var eventText = "Your "+member+" wants to be pampered. They'll need "+str(fullCost)+" economy points spent on them otherwise they'll lose 5 approval."
-			familyEvents.append([member, eventText, event, fullCost, -5])
+			GameData.familyEvents.append([member, eventText, event, fullCost, -5])
 		elif event == 2:
 			#they want to be promoted
 			var baseCost = 100
 			var fullCost = baseCost * multiplier
 			
 			var eventText = "Your "+member+" wants to be promoted. They'll need "+str(fullCost)+" rebellion points spent on them otherwise they'll lose 5 approval."
-			familyEvents.append([member, eventText, event, fullCost, -5])
+			GameData.familyEvents.append([member, eventText, event, fullCost, -5])
 		elif event == 3:
 			#they want to be protected
 			var baseCost = 100
 			var fullCost = baseCost * multiplier
 			
 			var eventText = "Your "+member+" wants to be protected while they kill someone. They'll need "+str(fullCost)+" security points spent on them otherwise they'll lose 5 approval."
-			familyEvents.append([member, eventText, event, fullCost, -5])
+			GameData.familyEvents.append([member, eventText, event, fullCost, -5])
 		
 
 func PopulateInformationLabels():
@@ -206,11 +207,8 @@ func _on_create_caste_button_pressed():
 	
 	
 func ShowTurnTransitionScreen():
-	var newTransition = turnTransitionScene.instantiate()
-	newTransition.global_position = Vector2(0,0)
+	get_tree().change_scene_to_file("res://Menus/TurnTransitionMenu.tscn")
 	
-	newTransition.PopulateEvents(familyEvents)
-	add_child(newTransition)
 	
 			
 
@@ -242,6 +240,10 @@ func _on_end_turn_pressed():
 	elif turnNumber == gameOverTurn:
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")
 		
+	GameData.turnAndPoints = [turnNumber, rebellionPoints, securityPoints, economyPoints]
+	
+	
+	
 	ShowTurnTransitionScreen()
 		
 		
