@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menu Scripts/CasteMenu.gd" id="1_wc44j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6s66"]
-bg_color = Color(0.414273, 0.150836, 0.54012, 1)
+bg_color = Color(0.415686, 0.14902, 0.541176, 1)
 
 [node name="CasteMenu" type="Control"]
 layout_mode = 3

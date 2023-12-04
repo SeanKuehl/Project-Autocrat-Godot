@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqtvnp5fsd05c"]
+[gd_scene load_steps=4 format=3 uid="uid://cqtvnp5fsd05c"]
 
 [ext_resource type="Script" path="res://Menu Scripts/FamilyMenu.gd" id="1_1hqbd"]
 [ext_resource type="PackedScene" uid="uid://bjtjttbpcagv1" path="res://GameObjects/FamilyMember.tscn" id="1_sq32s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmats"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
 
 [node name="FamilyMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +19,7 @@ script = ExtResource("1_1hqbd")
 layout_mode = 0
 offset_right = 1157.0
 offset_bottom = 654.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vmats")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0

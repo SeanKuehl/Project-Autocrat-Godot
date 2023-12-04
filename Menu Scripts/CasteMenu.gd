@@ -191,12 +191,14 @@ func _on_create_button_pressed():
 	UpdateCaste()
 	var casteExists = false
 	
-	if len(GameData.castes) <= 0:
+	if len(GameData.castes) <= 0 and ValidTitle() == true and validSelectionAndRights() == true:
 		var newCastes = []
 		newCastes.append(menuCaste)
 		GameData.castes = newCastes
+		HideMe()
+		get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
 		
-	else:
+	elif ValidTitle() == true and validSelectionAndRights() == true:
 		
 		for i in range(len(GameData.castes)):
 			if menuCaste.GetCasteID() == GameData.castes[i].GetCasteID():
@@ -206,10 +208,13 @@ func _on_create_button_pressed():
 		if casteExists == false:
 		
 			GameData.castes.append(menuCaste)
+			
+		HideMe()
+		get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
 	
-		
-	HideMe()
-	get_tree().change_scene_to_file("res://Menus/GameScreen.tscn")
+	else:
+		pass
+	
 	#get_tree().get_current_scene().ready
 	
 			
