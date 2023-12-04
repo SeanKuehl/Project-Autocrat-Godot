@@ -34,10 +34,16 @@ func GetRulerTraits():
 	
 	traits = [traitOne, traitTwo, traitThree]
 	
+	icon = ResourceLoader.load("res://assets/Images/GameObjects/king.png")
+	
+	$TraitOne.texture = load("res://assets/Images/GameObjects/ironfist.png")
+	$TraitTwo.texture = load("res://assets/Images/GameObjects/glory.png")
+	$TraitThree.texture = load("res://assets/Images/GameObjects/petty.png")
+	
 	
 func GetSpouseTraits():
-	var spouseOnlyTraits = GameData.LoadSpouseTraitsFromFile()
-	var memberTraits = GameData.LoadMemberTraitsFromFile()
+	#var spouseOnlyTraits = GameData.LoadSpouseTraitsFromFile()
+	#var memberTraits = GameData.LoadMemberTraitsFromFile()
 	
 	var traitOne = ["Spouse", "Concubine? Consort? You know, that thing"]
 	var traitTwo = GetAmbition()
@@ -45,15 +51,23 @@ func GetSpouseTraits():
 	
 	traits = [traitOne, traitTwo, traitThree]
 	
+	icon = ResourceLoader.load("res://assets/Images/GameObjects/queen.png")
+	
+	$TraitOne.texture = load("res://assets/Images/GameObjects/spouse.png")
+	
 	
 func GetMemberTraits():
-	var memberTraits = GameData.LoadMemberTraitsFromFile()
+	#var memberTraits = GameData.LoadMemberTraitsFromFile()
 	
 	var traitOne = ["Child", "Ungrateful swine"]
 	var traitTwo = GetAmbition()
 	var traitThree = GetCorruption()
 	
 	traits = [traitOne, traitTwo, traitThree]
+	
+	$TraitOne.texture = load("res://assets/Images/GameObjects/child.png")
+	
+	
 
 	
 func GetAmbition():
@@ -63,12 +77,15 @@ func GetAmbition():
 	if chance == 1:
 		#low chance of random event
 		ambition = 16
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/lowambition.png")
 		return ["Low Ambition", "I'm grateful for my place"]
 	elif chance == 2:
 		ambition = 8
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/averageambition.png")
 		return ["Average Ambition", "Things could be better"]
 	elif chance == 3:
 		ambition = 4
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/highambition.png")
 		return ["High Ambition", "The world is MINE"]
 		
 
@@ -79,12 +96,15 @@ func GetCorruption():
 	if chance == 1:
 		#low corruption
 		corruptionMultiplier = 1
+		$TraitThree.texture = load("res://assets/Images/GameObjects/lowcorruption.png")
 		return ["Low Corruption", "Keep the change"]
 	elif chance == 2:
 		corruptionMultiplier = 2
+		$TraitThree.texture = load("res://assets/Images/GameObjects/averagecorruption.png")
 		return ["Average Corruption", "I earned it"]
 	elif chance == 3:
 		corruptionMultiplier = 3
+		$TraitThree.texture = load("res://assets/Images/GameObjects/highcorruption.png")
 		return ["High Corruption", "What do you mean YOUR property?"]
 
 func GenerateSpouse():
@@ -102,6 +122,7 @@ func GenerateFamilyMember():
 		var possibleNames = GameData.LoadBoysNamesFromFile()
 		randNum = rng.randi_range(0,len(possibleNames)-1)
 		memberName = possibleNames[randNum]
+		$FamilyMember.icon = load("res://assets/Images/GameObjects/prince.png")
 		
 		
 	elif randNum == 2:
@@ -109,5 +130,6 @@ func GenerateFamilyMember():
 		var possibleNames = GameData.LoadGirlsNamesFromFile()
 		randNum = rng.randi_range(0,len(possibleNames)-1)
 		memberName = possibleNames[randNum]
+		$FamilyMember.icon = load("res://assets/Images/GameObjects/princess.png")
 		
 	GetMemberTraits()

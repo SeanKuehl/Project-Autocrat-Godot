@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjtjttbpcagv1"]
 
-[ext_resource type="Texture2D" uid="uid://bigyq2e3038tk" path="res://icon.svg" id="1_irsy4"]
+[ext_resource type="Texture2D" uid="uid://c2e35gtht3kk0" path="res://assets/Images/GameObjects/empty.png" id="1_jnw6p"]
 [ext_resource type="Script" path="res://GameObjectScripts/FamilyMember.gd" id="2_66ubn"]
 
 [node name="FamilyMember" type="Button"]
@@ -8,23 +8,23 @@ offset_left = -69.0
 offset_top = -74.0
 offset_right = 67.0
 offset_bottom = 62.0
-icon = ExtResource("1_irsy4")
+icon = ExtResource("1_jnw6p")
 script = ExtResource("2_66ubn")
 
 [node name="TraitOne" type="Sprite2D" parent="."]
 position = Vector2(13, 162)
 scale = Vector2(0.335938, 0.367188)
-texture = ExtResource("1_irsy4")
+texture = ExtResource("1_jnw6p")
 
 [node name="TraitTwo" type="Sprite2D" parent="."]
 position = Vector2(72, 164)
 scale = Vector2(0.335938, 0.367188)
-texture = ExtResource("1_irsy4")
+texture = ExtResource("1_jnw6p")
 
 [node name="TraitThree" type="Sprite2D" parent="."]
 position = Vector2(125, 163)
 scale = Vector2(0.335938, 0.367188)
-texture = ExtResource("1_irsy4")
+texture = ExtResource("1_jnw6p")
 
 [node name="MemberName" type="Label" parent="."]
 layout_mode = 0
