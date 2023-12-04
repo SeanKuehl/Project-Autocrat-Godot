@@ -24,10 +24,14 @@ func _process(delta):
 
 func _on_pressed():
 	#send signal to display traits, name etc
+	
 	emit_signal("ShowMember", memberName, gender, traits)
 	
 
 func GetRulerTraits():
+	memberName = "Ruler"
+	gender = "Male"
+	
 	var traitOne = ["Iron Fist", "Kindness is weakness"]
 	var traitTwo = ["Glorious", "My glory shines upon all"]
 	var traitThree = ["Petty", "Oh you like THAT flavor?"]
@@ -110,6 +114,11 @@ func GetCorruption():
 func GenerateSpouse():
 	gender = "Female"
 	
+	
+	var possibleNames = GameData.LoadGirlsNamesFromFile()
+	var randNum = rng.randi_range(0,len(possibleNames)-1)
+	memberName = possibleNames[randNum]
+	
 	GetSpouseTraits()
 	GameData.spouseChances = [ambition, corruptionMultiplier]
 	
@@ -122,7 +131,7 @@ func GenerateFamilyMember():
 		var possibleNames = GameData.LoadBoysNamesFromFile()
 		randNum = rng.randi_range(0,len(possibleNames)-1)
 		memberName = possibleNames[randNum]
-		$FamilyMember.icon = load("res://assets/Images/GameObjects/prince.png")
+		icon = ResourceLoader.load("res://assets/Images/GameObjects/prince.png")
 		
 		
 	elif randNum == 2:
@@ -130,6 +139,9 @@ func GenerateFamilyMember():
 		var possibleNames = GameData.LoadGirlsNamesFromFile()
 		randNum = rng.randi_range(0,len(possibleNames)-1)
 		memberName = possibleNames[randNum]
-		$FamilyMember.icon = load("res://assets/Images/GameObjects/princess.png")
+		icon = ResourceLoader.load("res://assets/Images/GameObjects/princess.png")
 		
 	GetMemberTraits()
+	
+func GetAmbitionAndCorruption():
+	return [ambition, corruptionMultiplier]

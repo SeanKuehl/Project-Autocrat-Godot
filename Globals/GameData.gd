@@ -77,16 +77,16 @@ func LoadMemberTraitsFromFile():
 func LoadBoysNamesFromFile():
 	var content = ReadLinesFromFile("res://assets/FamilyData/MaleNames.txt")
 	var noNew = content.split("\n") #get rid of newlines
-	var names = []
 	
-	return names
+	
+	return noNew
 	
 func LoadGirlsNamesFromFile():
 	var content = ReadLinesFromFile("res://assets/FamilyData/FemaleNames.txt")
 	var noNew = content.split("\n") #get rid of newlines
-	var names = []
 	
-	return names
+	
+	return noNew
 	
 	
 func LoadHowToPlayFromFile():

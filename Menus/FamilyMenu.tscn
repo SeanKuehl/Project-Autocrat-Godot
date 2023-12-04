@@ -73,6 +73,8 @@ offset_left = 849.0
 offset_top = 4.0
 offset_right = 1145.0
 offset_bottom = 409.0
+autowrap_mode = 2
+clip_text = true
 
 [node name="MarryButton" type="Button" parent="."]
 layout_mode = 0
