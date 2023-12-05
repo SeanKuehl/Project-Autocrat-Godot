@@ -1,7 +1,20 @@
 Hello and welcome ruler to your new nation. In order to stay in power you need to keep the people in check.
-The main way you keep the people in check is with Castes. In order to make a caste you'll need to select
-who should belong to it and what rights they should have as well as if they are a ruling caste or lower
-caste.
+Here we will teach you everything you need to know to keep them down and yourself in power. You control
+how your society is divided and who has power through castes. Castes are a defined group of people
+with rights(or lack thereof).
+1
+Economy points are a currency you can use to pay off family members, hold celebrations to try and
+stave off rebellion amoung other things. You get economy points by working the lower classes harder,
+winning wars and making descisions that reward you with money at the cost of other things.
+1
+Security points show the relative strength of your loyal security forces. You can use security points
+to go to war for riches and other issues of national(your) security. You gain security points by
+keeping the ruling classes happy by granting them rights.
+1
+Rebellion points show how angry the lower classes are. If you accumulate too many of them the people
+will revolt and you'll be overthrown. The harder you work the lower classes the faster they will grow
+rebellious. You can stave off rebellion by winning wars, holding celebrations or granting the plebs
+more rights(yuck!).
 1
 A Selection determines who is in the caste. If you don't select anyone all groups will be included.
 The pickier you are, the less people will be in the caste. If the caste is a ruling caste, it will
@@ -17,12 +30,7 @@ The higher the approval of the ruling class, the more security points they gener
 taxes are paid due to their corruption and exploitation of their priviliges. The Lower the approval
 of the lower class, the more taxes that are generated but also the more rebellion points.
 1
-Security Points are needed to fight wars and take actions to keep your nation safe. Rebellion points
-are a culmination of the unrest of the lower classes. If they get too high, there will be a rebellion
-and you'll be overthrown. Economy points are essentially money that can be used appease the lower classes
-or feed the thirst of entitled family members.
-1
-You can start a war at anytime. Each turn you are at war you will up more and more security points.
+You can start a war at anytime. Each turn you are at war you will use up more and more security points.
 If you surrender a war you will gain rebellion points and lose economy points. If you win a war
 you will erase all rebellion points and win lots of economy points. Sometimes, it's a risk worth
 taking. The biggest problem is that you never know how long a war could drag on for.
@@ -30,7 +38,7 @@ After all is said and done it's only your people's lives, what's there to lose?
 1
 Family is great, at being corrupt. Even though no one could ever be as great as you, no one rules
 forever. Sooner or later you will need an heir. To do this you will need a spouse and children.
-Each of these family members will have three traits. Some good and some bad. Sometimes they will
+Each of these family members will have three traits. Sometimes they will
 make ruling easier and sometimes they'll throw a tantrum if they can't buy new designer shoes.
 Either way, it's a risk you'll have to take. Be careful about any family member's approval getting
 too low, they may try and overthrow you!
