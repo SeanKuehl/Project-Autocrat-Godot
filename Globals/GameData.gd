@@ -29,6 +29,9 @@ var turnAndPoints = [0,0,0,0]
 var celebrationCost = 1000
 var celebrationTurnCooldown = 0
 
+var marryCooldown = 1
+var childCooldown = 1
+
 const selectionBase = preload("res://Game Data Scripts/Selection.gd")
 const rightBase = preload("res://Game Data Scripts/Right.gd")
 
