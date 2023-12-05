@@ -8,6 +8,9 @@ var rebellionPoints = 0
 var securityPoints = 0
 var economyPoints = 0
 
+var celebrationCost = 1000
+var celebrationTurnCooldown = 0
+
 var gameOverTurn = 50
 var rebellionThreshold = -5000
 
@@ -40,6 +43,11 @@ func _ready():
 	$RebellionBar.max_value = abs(rebellionThreshold)
 	$RebellionBar.value = abs(rebellionPoints)
 	$RebellionThresholdLabel.text = "Rebellion happens at: "+str(rebellionThreshold)
+	$CelebrationLabel.text = "Hold celebrations to halve your rebellion points for "+str(celebrationCost)+" but you'll need to wait 5 turns until you can do it again."
+	
+	if celebrationTurnCooldown > 0:
+		$CelebrationButton.disabled = true
+		celebrationTurnCooldown -= 1
 	
 			
 
@@ -266,3 +274,11 @@ func _on_family_pressed():
 
 
 
+
+
+func _on_celebration_button_pressed():
+	#remember to update celebration label
+	celebrationCost *= 10
+	celebrationTurnCooldown = 5
+	rebellionPoints *= 0.5
+	

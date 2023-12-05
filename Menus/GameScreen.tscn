@@ -96,10 +96,10 @@ text = "War"
 
 [node name="Family" type="Button" parent="."]
 layout_mode = 0
-offset_left = 297.0
-offset_top = 3.0
-offset_right = 444.0
-offset_bottom = 72.0
+offset_left = 287.0
+offset_top = 4.0
+offset_right = 445.0
+offset_bottom = 73.0
 text = "Family
 "
 
@@ -136,7 +136,23 @@ offset_top = 402.0
 offset_right = 1138.0
 offset_bottom = 455.0
 
+[node name="CelebrationButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 477.0
+offset_right = 1013.0
+offset_bottom = 527.0
+text = "Hold Celebration For Plebs"
+
+[node name="CelebrationLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 537.0
+offset_right = 1064.0
+offset_bottom = 638.0
+
 [connection signal="pressed" from="CreateCasteButton" to="." method="_on_create_caste_button_pressed"]
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="War" to="." method="_on_war_pressed"]
 [connection signal="pressed" from="Family" to="." method="_on_family_pressed"]
+[connection signal="pressed" from="CelebrationButton" to="." method="_on_celebration_button_pressed"]
