@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://wtkgo5eq4boa"]
+
+[ext_resource type="Texture2D" uid="uid://bigyq2e3038tk" path="res://icon.svg" id="1_4sixx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u02t"]
+bg_color = Color(0.414273, 0.150836, 0.54012, 1)
+
+[node name="RandomEventMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1u02t")
+
+[node name="EventImage" type="Sprite2D" parent="."]
+position = Vector2(590, 199)
+texture = ExtResource("1_4sixx")
+
+[node name="EventTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 44.0
+offset_right = 764.0
+offset_bottom = 116.0
+
+[node name="EventDescription" type="Label" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 273.0
+offset_right = 1021.0
+offset_bottom = 432.0
+
+[node name="OptionOne" type="Button" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 495.0
+offset_right = 443.0
+offset_bottom = 539.0
+text = "option1"
+
+[node name="OptionTwo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 497.0
+offset_right = 795.0
+offset_bottom = 541.0
+text = "option2"
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 590.0
+offset_right = 627.0
+offset_bottom = 634.0
+text = "Continue"

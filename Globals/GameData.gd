@@ -16,11 +16,19 @@ var warDifficulty = "easy"
 
 var familyEvents = []
 
+var randomEvents = []
+
 var spouseChances = [0,0]
 var firstChildChances = [0,0]
 var secondChildChances = [0,0]
 var thirdChildChances = [0,0]
 var fourthChildChances = [0,0]
+
+var spouseInfo = []
+var firstChildInfo = []
+var secondChildInfo = []
+var thirdChildInfo = []
+var fourthChildInfo = []
 
 var familyMemberApprovals = [0,0,0,0,0]
 

@@ -121,6 +121,62 @@ func GenerateSpouse():
 	
 	GetSpouseTraits()
 	GameData.spouseChances = [ambition, corruptionMultiplier]
+	GameData.spouseInfo = [memberName, gender]
+	
+func GetNameAndGender():
+	return [memberName, gender]
+	
+	
+func RestoreFamilyMember(myName, myGender, myAmbition, myCorruption, memberType):
+	memberName = myName
+	gender = myGender
+	ambition = myAmbition
+	corruptionMultiplier = myCorruption
+	
+	traits = [[],[],[]]
+	
+	if corruptionMultiplier == 1:
+		#low corruption
+		
+		$TraitThree.texture = load("res://assets/Images/GameObjects/lowcorruption.png")
+		traits[2] = ["Low Corruption", "Keep the change"]
+	elif corruptionMultiplier == 2:
+		
+		$TraitThree.texture = load("res://assets/Images/GameObjects/averagecorruption.png")
+		traits[2] = ["Average Corruption", "I earned it"]
+	elif corruptionMultiplier == 3:
+		
+		$TraitThree.texture = load("res://assets/Images/GameObjects/highcorruption.png")
+		traits[2] = ["High Corruption", "What do you mean YOUR property?"]
+		
+		
+	if ambition == 16:
+		#low chance of random event
+		
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/lowambition.png")
+		traits[1] = ["Low Ambition", "I'm grateful for my place"]
+	elif ambition == 8:
+		
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/averageambition.png")
+		traits[1] = ["Average Ambition", "Things could be better"]
+	elif ambition == 4:
+		
+		$TraitTwo.texture = load("res://assets/Images/GameObjects/highambition.png")
+		traits[1] = ["High Ambition", "The world is MINE"]
+		
+		
+	if memberType == "spouse":
+		icon = ResourceLoader.load("res://assets/Images/GameObjects/queen.png")
+		traits[0] = ["Spouse", "Concubine? Consort? You know, that thing"]
+		$TraitOne.texture = load("res://assets/Images/GameObjects/spouse.png")
+	elif memberType == "child":
+		$TraitOne.texture = load("res://assets/Images/GameObjects/child.png")
+		traits[0] = ["Child", "Ungrateful swine"]
+		
+		if gender == "Male":
+			icon = ResourceLoader.load("res://assets/Images/GameObjects/prince.png")
+		elif gender == "Female":
+			icon = ResourceLoader.load("res://assets/Images/GameObjects/princess.png")
 	
 	
 func GenerateFamilyMember():
