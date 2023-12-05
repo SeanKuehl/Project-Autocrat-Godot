@@ -72,6 +72,14 @@ func ReadLinesFromFile(fileName):
 
 	return content
 	
+	
+func LoadRandomEventsFromFile():
+	var content = ReadLinesFromFile("res://assets/RandomEvents/RandomEvents.txt")
+	var noNew = content.split("\n") #get rid of newlines
+	
+	
+	return noNew
+	
 
 func LoadSpouseTraitsFromFile():
 	var content = ReadLinesFromFile("res://assets/FamilyData/SpouseTriaits.txt")

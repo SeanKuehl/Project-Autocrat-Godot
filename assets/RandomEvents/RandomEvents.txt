@@ -1,0 +1,64 @@
+Charter of Rights and Plebs
+1
+fake.png
+1
+You have had the amazing idea to guarantee certain basic rights to all
+of your people. They will be forever grateful, but your family will not be.
+Add 2000 to your rebellion threshold but your family will now revolt 10
+approval sooner due to this action. All family approvals will be returned to
+zero due while they seethe at your genius.
+1
+Implement
+1
+Decide Against
+1
+0001
+1
+All is well that ends psycho
+1
+fake.png
+1
+An individual has come forward claiming to be your long lost child
+(you know, from your wild and frisky days). They say if they are allowed
+to be your hier they will not ask for money or anything like that ever.
+All they ask is the right to slaughter any current family. If you accept
+this offer you will be international enemy number one and wars will cost 50% more per turn.
+1
+Let the Bodies Hit the Floor!
+1
+Begone Psycho
+1
+0002
+1
+Foriegn Favour
+1
+fake.png
+1
+A foriegn ruler is asking you for a favour. They admire your security
+and would like to borrow some of it in exchange for valuable commodities such
+as food, materials and collectable trading cards. It will cost you 50% of your
+current security points, but the cost to hold a celebration will be reduced by
+10 times! Think of what you could do with all of those trading cards...
+1
+A Fine Addition to My Collection
+1
+No Thanks
+1
+0003
+1
+Forced Conscription
+1
+fake.png
+1
+Taxation without representation, no rights, brutal forced labour. 
+Who's allowing these plebs to get away with such luxury? Force 
+conscription on the lower classes to make them earn their existence!
+This will lower the cost of wars by 50% per turn but will reduce
+the rebellion points needed for a revolt by 1000.
+1
+Fight or Die!
+1
+No
+1
+0004
+1

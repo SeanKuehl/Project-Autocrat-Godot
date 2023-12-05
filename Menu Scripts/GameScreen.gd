@@ -19,7 +19,8 @@ var randGenerator = RandomNumberGenerator.new()
 
 func _ready():
 	
-	
+	var lines = GameData.LoadRandomEventsFromFile()
+	RefineLines(lines)
 	
 	if GameData.turnAndPoints[0] != 0:
 		#this to to restore state after change to another scene
@@ -49,6 +50,31 @@ func _ready():
 		GameData.celebrationTurnCooldown -= 1
 	
 			
+
+
+func RefineLines(lines):
+	var thisEvent = []
+	var thisLine = ""
+	var counter = 0
+	
+	for line in lines:
+		
+		if line == "1":
+			thisEvent.append(thisLine)
+			counter += 1
+		else:
+			thisLine = line
+			
+			
+		if counter == 6:
+			counter = 0
+			GameData.randomEvents.append(thisEvent)
+			thisEvent = []
+			thisLine = ""
+			
+	
+		
+
 
 			
 func DisplayCastes():
