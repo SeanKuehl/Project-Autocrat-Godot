@@ -8,8 +8,8 @@ var rebellionPoints = 0
 var securityPoints = 0
 var economyPoints = 0
 
-var gameOverTurn = 20
-var rebellionThreshold = -10000
+var gameOverTurn = 50
+var rebellionThreshold = -5000
 
 var randGenerator = RandomNumberGenerator.new()
 
@@ -38,6 +38,7 @@ func _ready():
 	PopulateInformationLabels()
 
 	$RebellionBar.max_value = abs(rebellionThreshold)
+	$RebellionBar.value = abs(rebellionPoints)
 	$RebellionThresholdLabel.text = "Rebellion happens at: "+str(rebellionThreshold)
 	
 			
@@ -78,7 +79,7 @@ func CalculateRebellionAndSecurityPoints():
 			
 			
 			var points = caste.GetApproval() * caste.GetLimitedness()
-			securityPoints += points
+			securityPoints += points * 100
 				
 		elif caste.GetRulingClass() == false:
 			economyPointHelper += abs(caste.GetApproval() * caste.GetLimitedness())
@@ -91,7 +92,7 @@ func CalculateRebellionAndSecurityPoints():
 	if economyPointHelper > 0:
 		#ruling class doesn't pay taxes, working class does
 		#econ points is lower class limitedness - ruling class limitedness * 1000
-		economyPoints += economyPointHelper * 1000
+		economyPoints += economyPointHelper * 100
 	
 func GetIfWarContinues():
 	var chance = 0
@@ -233,18 +234,20 @@ func _on_end_turn_pressed():
 		
 		PopulateInformationLabels()
 		
-	$RebellionBar.value = abs(rebellionPoints)
+	
+	
 		
 	if rebellionPoints <= rebellionThreshold:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
 	elif turnNumber == gameOverTurn:
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")
+	else:
 		
-	GameData.turnAndPoints = [turnNumber, rebellionPoints, securityPoints, economyPoints]
-	
-	
-	
-	ShowTurnTransitionScreen()
+		GameData.turnAndPoints = [turnNumber, rebellionPoints, securityPoints, economyPoints]
+		
+		
+		
+		ShowTurnTransitionScreen()
 		
 		
 		
@@ -262,5 +265,4 @@ func _on_family_pressed():
 	get_tree().change_scene_to_file("res://Menus/FamilyMenu.tscn")
 
 
-func _on_button_pressed():
-	$TextureProgressBar.value += 1
+
