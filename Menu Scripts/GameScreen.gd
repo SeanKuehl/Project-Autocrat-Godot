@@ -313,4 +313,5 @@ func _on_celebration_button_pressed():
 	GameData.celebrationCost *= 10
 	GameData.celebrationTurnCooldown = 5
 	rebellionPoints *= 0.5
+	$CelebrationButton.disabled = true
 	

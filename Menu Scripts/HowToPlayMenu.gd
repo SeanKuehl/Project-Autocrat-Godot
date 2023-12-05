@@ -4,7 +4,7 @@ extends Control
 var textEntries = []
 var entriesIndex = 0
 
-var imageList = ["HowToPlaylogo.png", "coin.png", "eye.png", "fist.png", "CasteMenu.png", "CasteMenu.png", "CasteMenu.png", "war.png", "child.png"]
+var imageList = ["HowToPlaylogo.png", "coin.png", "eye.png", "fist.png", "CasteMenu.png", "CasteMenu.png", "CasteMenu.png", "war.png", "child.png", "HowToPlaylogo.png"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
