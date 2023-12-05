@@ -8,8 +8,7 @@ var rebellionPoints = 0
 var securityPoints = 0
 var economyPoints = 0
 
-var celebrationCost = 1000
-var celebrationTurnCooldown = 0
+
 
 var gameOverTurn = 50
 var rebellionThreshold = -5000
@@ -43,11 +42,11 @@ func _ready():
 	$RebellionBar.max_value = abs(rebellionThreshold)
 	$RebellionBar.value = abs(rebellionPoints)
 	$RebellionThresholdLabel.text = "Rebellion happens at: "+str(rebellionThreshold)
-	$CelebrationLabel.text = "Hold celebrations to halve your rebellion points for "+str(celebrationCost)+" but you'll need to wait 5 turns until you can do it again."
+	$CelebrationLabel.text = "Hold celebrations to halve your rebellion points for "+str(GameData.celebrationCost)+" but you'll need to wait 5 turns until you can do it again."
 	
-	if celebrationTurnCooldown > 0:
+	if GameData.celebrationTurnCooldown > 0:
 		$CelebrationButton.disabled = true
-		celebrationTurnCooldown -= 1
+		GameData.celebrationTurnCooldown -= 1
 	
 			
 
@@ -157,6 +156,8 @@ func HandleWarVictory():
 
 func GenerateFamilyRandomEvents():
 	
+	
+	
 	#generate events for spouse
 	if GameData.spouseChances != [0,0]:
 		GenerateRandomEvent(GameData.spouseChances[0], GameData.spouseChances[1], "spouse")
@@ -172,6 +173,35 @@ func GenerateFamilyRandomEvents():
 		
 	if GameData.fourthChildChances != [0,0]:
 		GenerateRandomEvent(GameData.fourthChildChances[0], GameData.fourthChildChances[1], "fourth child")
+
+
+func HasHier():
+	
+	if GameData.firstChildChances != [0,0]:
+		return true
+		
+	if GameData.secondChildChances != [0,0]:
+		return true
+		
+	if GameData.thirdChildChances != [0,0]:
+		return true
+		
+	if GameData.fourthChildChances != [0,0]:
+		return true
+		
+	return false
+
+
+func CheckForFamilyRevolt():
+	
+	for member in GameData.familyMemberApprovals:
+		
+		if member <= -20:
+			#trigger a game over
+			return true
+			
+	return false
+			
 
 		
 func GenerateRandomEvent(chance, multiplier, member):
@@ -247,8 +277,10 @@ func _on_end_turn_pressed():
 		
 	if rebellionPoints <= rebellionThreshold:
 		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
-	elif turnNumber == gameOverTurn:
+	elif turnNumber == gameOverTurn and HasHier():
 		get_tree().change_scene_to_file("res://Menus/VictoryScreen.tscn")
+	elif CheckForFamilyRevolt() or HasHier() == false:
+		get_tree().change_scene_to_file("res://Menus/DefeatScreen.tscn")
 	else:
 		
 		GameData.turnAndPoints = [turnNumber, rebellionPoints, securityPoints, economyPoints]
@@ -278,7 +310,7 @@ func _on_family_pressed():
 
 func _on_celebration_button_pressed():
 	#remember to update celebration label
-	celebrationCost *= 10
-	celebrationTurnCooldown = 5
+	GameData.celebrationCost *= 10
+	GameData.celebrationTurnCooldown = 5
 	rebellionPoints *= 0.5
 	
