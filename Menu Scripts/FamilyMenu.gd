@@ -16,13 +16,19 @@ func _ready():
 	$ChildThree.ShowMember.connect(DisplayMember)
 	$ChildFour.ShowMember.connect(DisplayMember)
 	
-	if GameData.marryCooldown > 0:
-		GameData.marryCooldown -= 1
+	if GameData.marryCooldown >= GameData.turnAndPoints[0] or GameData.marryCooldown == 0:
+		GameData.marryCooldown = 0
 		$MarryButton.disabled = false
+	else:
+		$MarryButton.disabled = true
 		
-	if GameData.childCooldown > 0:
-		GameData.childCooldown -= 1
+	if GameData.childCooldown >= GameData.turnAndPoints[0] or GameData.childCooldown == 0:
+		GameData.childCooldown = 0
 		$TryForChildButton.disabled = false
+	else:
+		$TryForChildButton.disabled = true
+		
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,7 +81,7 @@ func _on_marry_button_pressed():
 		else:
 			$MemberDisplay.text = "Failed, so lonely"
 			$MarryButton.disabled = true
-			GameData.marryCooldown = 1
+			GameData.marryCooldown = GameData.turnAndPoints[0] + 1
 
 
 func _on_try_for_child_button_pressed():
@@ -93,7 +99,7 @@ func _on_try_for_child_button_pressed():
 		else:
 			$MemberDisplay.text = "Failed, no dad jokes for you"
 			$TryForChildButton.disabled = true
-			GameData.childCooldown = 1
+			GameData.childCooldown = GameData.turnAndPoints[0] + 1
 		
 	elif GameData.secondChildChances == [0,0] and GameData.spouseChances != [0,0]:
 		#there is currently no second child
@@ -104,7 +110,7 @@ func _on_try_for_child_button_pressed():
 		else:
 			$MemberDisplay.text = "Failed, no dad jokes for you"
 			$TryForChildButton.disabled = true
-			GameData.childCooldown = 1
+			GameData.childCooldown = GameData.turnAndPoints[0] + 1
 		
 	elif GameData.thirdChildChances == [0,0] and GameData.spouseChances != [0,0]:
 		#there is currently no third child
@@ -115,7 +121,7 @@ func _on_try_for_child_button_pressed():
 		else:
 			$MemberDisplay.text = "Failed, no dad jokes for you"
 			$TryForChildButton.disabled = true
-			GameData.childCooldown = 1
+			GameData.childCooldown = GameData.turnAndPoints[0] + 1
 		
 	elif GameData.fourthChildChances == [0,0] and GameData.spouseChances != [0,0]:
 		#there is currently no fourth child
@@ -126,4 +132,4 @@ func _on_try_for_child_button_pressed():
 		else:
 			$MemberDisplay.text = "Failed, no dad jokes for you"
 			$TryForChildButton.disabled = true
-			GameData.childCooldown = 1
+			GameData.childCooldown = GameData.turnAndPoints[0] + 1
